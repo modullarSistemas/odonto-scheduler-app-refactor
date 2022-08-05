@@ -1,0 +1,24 @@
+<form [formGroup]="form" (ngSubmit)="login()">
+
+  <div *ngIf="loginError">
+    <div>
+      <mat-icon>report</mat-icon>
+    </div>
+    <p>Usuario ou senha incorretos</p>
+  </div>
+
+  <mat-spinner *ngIf="isLoading" diameter="30"></mat-spinner>
+
+  <mat-form-field>
+    <input class="form-input" matInput placeholder="Usuario" formControlName="username">
+  </mat-form-field>
+
+  <mat-form-field>
+    <input class="form-input" matInput placeholder="Senha" type="password" formControlName="password">
+  </mat-form-field>
+
+  <div>
+    <button mat-raised-button color="primary" type="submit">ENTRAR</button>
+    <button mat-button>Esqueci minha senha</button>
+  </div>
+</form>
