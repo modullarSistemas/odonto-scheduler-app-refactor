@@ -1,4 +1,32 @@
 /* You can add global styles to this file, and also import other style files */
 
-html, body { height: 100%; }
-body { margin: 0; font-family: Roboto, "Helvetica Neue", sans-serif; }
+html, body {
+  height: 100%;
+}
+
+body {
+  margin: 0;
+  font-family: Roboto, "Helvetica Neue", sans-serif;
+}
+
+.toolbar-view-container {
+  background: #fafafa;
+}
+
+.view-container {
+  padding: 0 16px;
+}
+
+.toolbar-spacer {
+  flex: 1 1 auto;
+}
+
+.primary-background {
+  background: #3F51B5 !important;
+  color: white !important;
+}
+
+.danger-background {
+  background: #bb2124 !important;
+  color: white !important;
+}

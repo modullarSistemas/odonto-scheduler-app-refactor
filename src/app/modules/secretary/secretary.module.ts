@@ -5,11 +5,33 @@ import { SecretaryRoutingModule } from './secretary-routing.module';
 import { SecretaryComponent } from './container/secretary.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { SharedModule } from 'src/app/shared/shared.module';
+import { EvaluationsComponent } from './schedule/evaluations/evaluations.component';
+import { HistoryComponent } from './schedule/history/history.component';
+import { ProceduresComponent } from './schedule/procedures/procedures.component';
+import { NewEvaluationEventComponent } from './schedule/evaluations/new-evaluation-event/new-evaluation-event.component';
+import { NewProcedureEventComponent } from './schedule/procedures/new-procedure-event/new-procedure-event.component';
+import { PatientsComponent } from './patients/patients.component';
+import { NewPatientComponent } from './patients/new-patient/new-patient.component';
+import { PatientComponent } from './patients/patient/patient.component';
+import { AddressFormComponent } from './patients/new-patient/components/address-form/address-form.component';
+import { InfoFormComponent } from './patients/new-patient/components/info-form/info-form.component';
+import { DependantsFormComponent } from './patients/new-patient/components/dependants-form/dependants-form.component';
 
 @NgModule({
   declarations: [
     SecretaryComponent,
-    DashboardComponent
+    DashboardComponent,
+    EvaluationsComponent,
+    HistoryComponent,
+    ProceduresComponent,
+    NewEvaluationEventComponent,
+    NewProcedureEventComponent,
+    PatientsComponent,
+    NewPatientComponent,
+    PatientComponent,
+    AddressFormComponent,
+    InfoFormComponent,
+    DependantsFormComponent
   ],
   imports: [
     CommonModule,

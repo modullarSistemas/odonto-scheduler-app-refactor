@@ -1,0 +1,31 @@
+<mat-toolbar class="toolbar-view-container">
+  <h1 class="app-name">Cadastro de paciente</h1>
+  <span class="toolbar-spacer"></span>
+</mat-toolbar>
+
+<div class="view-container">
+<mat-stepper orientation="vertical" [linear]="false" #stepper>
+  <mat-step [stepControl]="patientInfoForm">
+    <ng-template matStepLabel>Informações pessoais</ng-template>
+    <app-info-form [infoForm]="patientInfoForm"></app-info-form>
+  </mat-step>
+  <mat-step >
+    <ng-template matStepLabel>Endereço</ng-template>
+    <app-address-form [addressForm]="patientAddressForm"></app-address-form>
+  </mat-step>
+  <mat-step >
+    <ng-template matStepLabel>Dependentes</ng-template>
+    <app-dependants-form [dependantsForm]="patientDependantsForm" [dependants]="dependants"></app-dependants-form>
+  </mat-step>
+  <mat-step>
+    <ng-template matStepLabel>Done</ng-template>
+    <p>You are now done.</p>
+    <div>
+      <button mat-button matStepperPrevious>Back</button>
+      <button mat-button (click)="stepper.reset()">Reset</button>
+    </div>
+  </mat-step>
+</mat-stepper>
+</div>
+
+

@@ -1,0 +1,42 @@
+<form [formGroup]="dependantsForm">
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Nome</mat-label>
+    <input formControlName="name" matInput />
+  </mat-form-field>
+  <br />
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Sexo</mat-label>
+    <mat-select formControlName="gender">
+      <mat-option value="female">Feminino</mat-option>
+      <mat-option value="male">Masculino</mat-option>
+    </mat-select>
+  </mat-form-field>
+  <br />
+  <!--
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Data de nascimento:</mat-label>
+      <input
+        mwlFlatpickr
+        [altInput]="true"
+        [convertModelValue]="true"
+        formControlName="birthDate"
+        matInput
+      />
+    </mat-form-field>
+    -->
+
+  <div>
+    <button mat-raised-button (click)="addDependant()">Adicionar</button>
+  </div>
+</form>
+
+<mat-list>
+  <div *ngFor="let dependant of dependants">
+    <mat-list-item> {{dependant.name}} <span class="toolbar-spacer"></span><app-close-button (click)="removeDependant(dependant)"></app-close-button></mat-list-item>
+    <mat-divider></mat-divider>
+  </div>
+</mat-list>
+
+<div>
+  <button mat-button matStepperNext>Next</button>
+</div>

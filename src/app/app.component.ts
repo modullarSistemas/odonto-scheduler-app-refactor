@@ -23,6 +23,10 @@ export class AppComponent {
       return;
     }
 
+    /*
+    if its base url ex: www.localhost.com
+    should redirect to specific user role
+
     if (res.role == 'admin') {
       this.router.navigate([routes.DASHBOARD_ADM]).then();
     }
@@ -34,7 +38,7 @@ export class AppComponent {
     if (res.role == 'secretary') {
       this.router.navigate([routes.DASHBOARD_SECRETARY]).then();
     }
-
+    */
     console.log(res);
   }
 

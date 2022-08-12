@@ -54,6 +54,7 @@ import { UserComponent } from './layout/components/user/user.component';
 import { NavListAdminComponent } from './layout/components/nav-list-admin/nav-list-admin.component';
 import { NavListSecretaryComponent } from './layout/components/nav-list-secretary/nav-list-secretary.component';
 import { NavListDentistComponent } from './layout/components/nav-list-dentist/nav-list-dentist.component';
+import { CloseButtonComponent } from './components/close-button/close-button.component';
 
 @NgModule({
   declarations: [
@@ -61,7 +62,8 @@ import { NavListDentistComponent } from './layout/components/nav-list-dentist/na
     UserComponent,
     NavListAdminComponent,
     NavListSecretaryComponent,
-    NavListDentistComponent
+    NavListDentistComponent,
+    CloseButtonComponent
   ],
   imports: [
     MatListModule,
@@ -176,7 +178,8 @@ import { NavListDentistComponent } from './layout/components/nav-list-dentist/na
     MatMenuModule,
     MatSelectModule,
     FormsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    CloseButtonComponent
   ]
 })
 export class SharedModule { }
