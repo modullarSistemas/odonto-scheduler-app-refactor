@@ -30,3 +30,13 @@ body {
   background: #bb2124 !important;
   color: white !important;
 }
+
+.blue-snackbar {
+  background-color: #328fc4 !important;
+  color: white !important;
+}
+
+.blue-snackbar button {
+  background-color: rgb(255, 255, 255);
+  color: rgb(5, 0, 0);
+}

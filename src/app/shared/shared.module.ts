@@ -56,6 +56,9 @@ import { NavListSecretaryComponent } from './layout/components/nav-list-secretar
 import { NavListDentistComponent } from './layout/components/nav-list-dentist/nav-list-dentist.component';
 import { CloseButtonComponent } from './components/close-button/close-button.component';
 
+import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
+import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
+
 @NgModule({
   declarations: [
     NavigationContainerComponent,
@@ -120,7 +123,10 @@ import { CloseButtonComponent } from './components/close-button/close-button.com
     MatMenuModule,
     MatSelectModule,
     FormsModule,
-    MatSidenavModule
+    MatSidenavModule,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatMomentModule
   ],
   exports: [
     NavigationContainerComponent,
@@ -179,7 +185,10 @@ import { CloseButtonComponent } from './components/close-button/close-button.com
     MatSelectModule,
     FormsModule,
     MatSidenavModule,
-    CloseButtonComponent
+    CloseButtonComponent,
+    NgxMatDatetimePickerModule,
+    NgxMatTimepickerModule,
+    NgxMatMomentModule
   ]
 })
 export class SharedModule { }

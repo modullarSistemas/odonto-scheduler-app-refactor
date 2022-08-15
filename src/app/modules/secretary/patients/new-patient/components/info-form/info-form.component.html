@@ -1,55 +1,55 @@
+
 <form [formGroup]="infoForm">
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field  appearance="fill">
       <mat-label>Nome</mat-label>
       <input formControlName="name" matInput />
     </mat-form-field>
-    <br />
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field  appearance="fill">
       <mat-label>Email</mat-label>
       <input formControlName="email" matInput />
     </mat-form-field>
+
     <br />
-    <!---
-    <mat-form-field class="example-full-width" appearance="fill">
-      <mat-label>Data de nascimento:</mat-label>
-      <input
-        mwlFlatpickr
-        [altInput]="true"
-        [convertModelValue]="true"
-        formControlName="birthDate"
-        matInput
-      />
-    </mat-form-field>
-    -->
-    <br />
-    <mat-form-field class="example-full-width" appearance="fill">
+
+    <mat-form-field>
+      <input matInput [ngxMatDatetimePicker]="picker" placeholder="Data de nascimento" [formControl]="infoForm.get('birthDate')">
+      <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
+      <ngx-mat-datetime-picker #picker
+        [enableMeridian]="false" >
+      </ngx-mat-datetime-picker>
+   </mat-form-field>
+    <mat-form-field  appearance="fill">
       <mat-label>Telefone</mat-label>
       <input formControlName="phone" matInput />
     </mat-form-field>
+
     <br />
-    <mat-form-field class="example-full-width" appearance="fill">
+
+    <mat-form-field  appearance="fill">
       <mat-label>Profissao</mat-label>
       <input formControlName="profession" matInput />
     </mat-form-field>
-    <br />
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field  appearance="fill">
       <mat-label>Estado Civil</mat-label>
       <mat-select formControlName="civilState">
         <mat-option value="single">Casado</mat-option>
         <mat-option value="married">Solteiro</mat-option>
       </mat-select>
     </mat-form-field>
+
     <br />
-    <mat-form-field class="example-full-width" appearance="fill">
+
+    <mat-form-field  appearance="fill">
       <mat-label>CPF</mat-label>
       <input formControlName="cpf" matInput />
     </mat-form-field>
-    <br />
-    <mat-form-field class="example-full-width" appearance="fill">
+    <mat-form-field  appearance="fill">
       <mat-label>RG</mat-label>
       <input formControlName="rg" matInput />
     </mat-form-field>
+
     <br />
+
     <mat-form-field appearance="fill">
       <mat-label>Sexo</mat-label>
       <mat-select formControlName="gender">
@@ -59,7 +59,7 @@
       </mat-select>
     </mat-form-field>
   <div>
-    <button mat-button matStepperNext>Next</button>
+    <button mat-button matStepperNext>Proximo</button>
   </div>
 </form>
 

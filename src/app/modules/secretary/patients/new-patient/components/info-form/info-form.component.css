@@ -1,0 +1,14 @@
+.container {
+  display: flex;
+  flex-direction: row;
+}
+
+.column {
+  flex: 1;
+  display: flex;
+  align-content: center;
+}
+
+mat-form-field {
+  margin: 10px;
+}
