@@ -16,6 +16,10 @@ import { PatientComponent } from './patients/patient/patient.component';
 import { AddressFormComponent } from './patients/new-patient/components/address-form/address-form.component';
 import { InfoFormComponent } from './patients/new-patient/components/info-form/info-form.component';
 import { DependantsFormComponent } from './patients/new-patient/components/dependants-form/dependants-form.component';
+import { PatientCardComponent } from './patients/components/patient-card/patient-card.component';
+import { InfoTabComponent } from './patients/patient/components/info-tab/info-tab.component';
+import { TreatmentsTabComponent } from './patients/patient/components/treatments-tab/treatments-tab.component';
+import { FinancialTabComponent } from './patients/patient/components/financial-tab/financial-tab.component';
 
 @NgModule({
   declarations: [
@@ -31,7 +35,11 @@ import { DependantsFormComponent } from './patients/new-patient/components/depen
     PatientComponent,
     AddressFormComponent,
     InfoFormComponent,
-    DependantsFormComponent
+    DependantsFormComponent,
+    PatientCardComponent,
+    InfoTabComponent,
+    TreatmentsTabComponent,
+    FinancialTabComponent
   ],
   imports: [
     CommonModule,
