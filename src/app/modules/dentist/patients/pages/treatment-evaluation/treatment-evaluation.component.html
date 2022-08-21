@@ -1,0 +1,32 @@
+<app-page-toolbar title="Nova avaliacao"></app-page-toolbar>
+
+<div class="view-container">
+  <mat-stepper linear="true" #stepper>
+    <mat-step label="Anamnese Medica">
+      <app-medical-anamnesis-stepper
+        [medicalQuestionaire]="medicalQuestionaire"
+      ></app-medical-anamnesis-stepper>
+
+    </mat-step>
+
+    <mat-step label="Anamnese Odontologica">
+      <app-odontological-anamnesis-stepper
+        [odontologicalQuestionaire]="odontologicalQuestionaire"
+      ></app-odontological-anamnesis-stepper>
+
+    </mat-step>
+
+    <mat-step label="Selecao de procedimentos">
+      <app-procedures-selection-stepper></app-procedures-selection-stepper>
+
+    </mat-step>
+
+    <mat-step label="Conferencia">
+      <p>You are now done.</p>
+      <div class="stepper-button-container">
+        <button mat-button matStepperPrevious>Back</button>
+        <button mat-button (click)="stepper.reset()">Reset</button>
+      </div>
+    </mat-step>
+  </mat-stepper>
+</div>

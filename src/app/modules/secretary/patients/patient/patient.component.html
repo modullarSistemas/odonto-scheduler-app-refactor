@@ -6,11 +6,11 @@
 <div class="view-container">
   <mat-tab-group >
     <mat-tab label="Informações pessoais">
-      <app-info-tab></app-info-tab>
+      <app-info-tab [patient]="patient"></app-info-tab>
     </mat-tab>
 
     <mat-tab label="Tratamentos">
-      <app-treatments-tab></app-treatments-tab>
+      <app-treatments-tab [treatments]="treatments"></app-treatments-tab>
     </mat-tab>
 
     <mat-tab label="Financeiro">

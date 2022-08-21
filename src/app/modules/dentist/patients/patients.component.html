@@ -1,0 +1,21 @@
+<app-page-toolbar title="Pacientes"></app-page-toolbar>
+
+<div class="view-container">
+  <mat-form-field style="width: 99%; margin: auto;" appearance="fill">
+    <mat-label>Pesquisar Paciente</mat-label>
+    <button matSuffix mat-icon-button >
+      <mat-icon>search</mat-icon>
+    </button>
+    <input type="text" placeholder="Pesquisar Paciente" matInput (keyup)="applyFilter($event)" >
+  </mat-form-field>
+
+  <div class="loading-container" *ngIf="!patients">
+      <mat-spinner [diameter]="25"></mat-spinner>
+  </div>
+
+  <div class="patients-list-container" *ngIf="patients">
+      <app-patient-card [patient]="patient" *ngFor="let patient of filteredPatients"></app-patient-card>
+  </div>
+</div>
+
+

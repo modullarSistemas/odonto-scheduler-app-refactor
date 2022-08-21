@@ -1,0 +1,14 @@
+.container {
+  width: 250px;
+  max-height: 200px;
+  margin: 10px;
+}
+
+.header-image {
+  background-image: url('https://cdn.pixabay.com/photo/2020/07/14/13/07/icon-5404125_960_720.png');
+  background-size: cover;
+}
+
+.mat-card-title {
+  font-size: 13px !important;
+}

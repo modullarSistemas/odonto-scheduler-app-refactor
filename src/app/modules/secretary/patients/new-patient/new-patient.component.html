@@ -4,29 +4,32 @@
 </mat-toolbar>
 
 <div class="view-container">
-<mat-stepper orientation="vertical" [linear]="true" #stepper>
-  <mat-step [stepControl]="patientInfoForm">
-    <ng-template matStepLabel>Informações pessoais</ng-template>
-    <app-info-form [infoForm]="patientInfoForm"></app-info-form>
-  </mat-step>
-  <mat-step >
-    <ng-template matStepLabel>Endereço</ng-template>
-    <app-address-form [addressForm]="patientAddressForm"></app-address-form>
-  </mat-step>
-  <mat-step >
-    <ng-template matStepLabel>Dependentes</ng-template>
-    <app-dependants-form [dependantsForm]="patientDependantsForm" [dependants]="dependants"></app-dependants-form>
-  </mat-step>
-  <mat-step>
-    <ng-template matStepLabel>Final</ng-template>
-    <p>Todas as informações foram coletadas.</p>
-    <div>
-      <button mat-button matStepperPrevious>Voltar</button>
-      <button mat-raised-button *ngIf="!isLoading" (click)="createPatient()">Adicionar</button>
-      <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
-    </div>
-  </mat-step>
-</mat-stepper>
+  <mat-stepper orientation="vertical" [linear]="true" #stepper>
+    <mat-step [stepControl]="patientInfoForm">
+      <ng-template matStepLabel>Informações pessoais</ng-template>
+      <app-info-form [infoForm]="patientInfoForm"></app-info-form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Endereço</ng-template>
+      <app-address-form [addressForm]="patientAddressForm"></app-address-form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Dependentes</ng-template>
+      <app-dependants-form
+        [dependantsForm]="patientDependantsForm"
+        [dependants]="dependants"
+      ></app-dependants-form>
+    </mat-step>
+    <mat-step>
+      <ng-template matStepLabel>Final</ng-template>
+      <p>Todas as informações foram coletadas.</p>
+      <div>
+        <button mat-button matStepperPrevious>Voltar</button>
+        <button mat-raised-button *ngIf="!isLoading" (click)="createPatient()">
+          Adicionar
+        </button>
+        <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+      </div>
+    </mat-step>
+  </mat-stepper>
 </div>
-
-

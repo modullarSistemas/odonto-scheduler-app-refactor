@@ -22,7 +22,9 @@ export class PatientCardComponent implements OnInit {
   }
 
   navigateToPatient() {
-    this.router.navigate([this.routes.PATIENTS_PATIENT_SECRETARY + this.patient?.id])
+    let route = this.routes.PATIENTS_PATIENT_SECRETARY as string;
+    route = route.replace(':id', (this.patient?.id as number).toString());
+    this.router.navigate([route])
   }
 
 }

@@ -1,0 +1,27 @@
+<app-page-toolbar [title]="patient?.name">
+  <button
+    mat-stroked-button
+    class="primary-background"
+    [matMenuTriggerFor]="menu"
+  >
+    Nova Avaliacao
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="navigateNewEvaluation(treatmentTypeEnum.ClinicoGeral)">Clinico Geral</button>
+    <button mat-menu-item (click)="navigateNewEvaluation(treatmentTypeEnum.Ortodontia)">Ortodontia</button>
+    <button mat-menu-item (click)="navigateNewEvaluation(treatmentTypeEnum.Implantodontia)">Implantodontia</button>
+    <button mat-menu-item (click)="navigateNewEvaluation(treatmentTypeEnum.HarmonizacaoFacial)">Harmonizacao Facial</button>
+  </mat-menu>
+</app-page-toolbar>
+
+<div class="view-container">
+  <mat-tab-group>
+    <mat-tab label="Informações pessoais">
+      <app-info-tab [patient]="patient"></app-info-tab>
+    </mat-tab>
+
+    <mat-tab label="Tratamentos">
+      <app-treatments-tab [treatments]="treatments"></app-treatments-tab>
+    </mat-tab>
+  </mat-tab-group>
+</div>

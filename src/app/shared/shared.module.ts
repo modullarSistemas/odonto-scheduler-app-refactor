@@ -58,6 +58,8 @@ import { CloseButtonComponent } from './components/close-button/close-button.com
 
 import { NgxMatDatetimePickerModule, NgxMatTimepickerModule } from '@angular-material-components/datetime-picker';
 import { NgxMatMomentModule } from '@angular-material-components/moment-adapter';
+import { ActionButtonsContainerComponent } from './components/action-buttons-container/action-buttons-container.component';
+import { PageToolbarComponent } from './components/page-toolbar/page-toolbar.component';
 
 @NgModule({
   declarations: [
@@ -66,7 +68,9 @@ import { NgxMatMomentModule } from '@angular-material-components/moment-adapter'
     NavListAdminComponent,
     NavListSecretaryComponent,
     NavListDentistComponent,
-    CloseButtonComponent
+    CloseButtonComponent,
+    ActionButtonsContainerComponent,
+    PageToolbarComponent
   ],
   imports: [
     MatListModule,
@@ -188,7 +192,9 @@ import { NgxMatMomentModule } from '@angular-material-components/moment-adapter'
     CloseButtonComponent,
     NgxMatDatetimePickerModule,
     NgxMatTimepickerModule,
-    NgxMatMomentModule
+    NgxMatMomentModule,
+    ActionButtonsContainerComponent,
+    PageToolbarComponent
   ]
 })
 export class SharedModule { }

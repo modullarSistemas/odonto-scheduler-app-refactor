@@ -9,10 +9,6 @@ body {
   font-family: Roboto, "Helvetica Neue", sans-serif;
 }
 
-.toolbar-view-container {
-  background: #fafafa;
-}
-
 .view-container {
   padding: 0 16px;
 }
@@ -22,8 +18,14 @@ body {
 }
 
 .primary-background {
-  background: #3F51B5 !important;
+  background: #328fc4 !important;
   color: white !important;
+}
+
+.outlined-button {
+  border: 2px solid #328fc4 !important;
+  background-color: white;
+  color: #328fc4;
 }
 
 .danger-background {

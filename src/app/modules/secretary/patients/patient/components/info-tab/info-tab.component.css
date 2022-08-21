@@ -1,0 +1,10 @@
+.info-container {
+  display: flex;
+  flex-direction: 'column';
+  justify-content: start;
+}
+
+.info-container div {
+  margin-left: 10px;
+  margin-right: 10px;
+}

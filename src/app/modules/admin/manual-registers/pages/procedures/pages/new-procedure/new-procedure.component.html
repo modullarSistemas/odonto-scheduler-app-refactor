@@ -1,0 +1,30 @@
+<app-page-toolbar title="Novo procedimento">
+  <button mat-stroked-button class="primary-background"  *ngIf="!isLoading" (click)="createProcedure()">Adicionar</button>
+  <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+</app-page-toolbar>
+
+<mat-card>
+  <mat-card-content>
+    <form style="width:100%;" [formGroup]="procedureForm">
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Tipo de tratamento</mat-label>
+        <mat-select formControlName="treatmentType">
+          <mat-option [value]="treatmentTypeEnum.ClinicoGeral">Clinico Geral</mat-option>
+          <mat-option [value]="treatmentTypeEnum.Ortodontia">Ortodontia</mat-option>
+          <mat-option [value]="treatmentTypeEnum.Implantodontia">Implantodontia</mat-option>
+          <mat-option [value]="treatmentTypeEnum.HarmonizacaoFacial">Harmonizacao Facial</mat-option>
+        </mat-select>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input formControlName="name" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Preço</mat-label>
+        <input formControlName="cost" type="number" matInput>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>

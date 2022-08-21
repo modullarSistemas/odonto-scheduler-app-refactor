@@ -1,0 +1,36 @@
+<app-action-buttons-container>
+  <button mat-raised-button class="primary-background" matStepperNext>Proximo</button>
+</app-action-buttons-container>
+
+<mat-card>
+  <mat-card-content>
+    <div *ngFor="let question of odontologicalQuestionaire">
+      <mat-form-field *ngIf="question.type == 'text'" style="width: 100%" appearance="fill">
+          <mat-label>{{ question.question }}</mat-label>
+          <input matInput placeholder="" [(ngModel)]="question.answer" required />
+      </mat-form-field>
+
+      <div *ngIf="question.type == 'checkbox'" style="width: 100%; padding: 10px">
+          <mat-checkbox class="example-margin" [(ngModel)]="question.answer"></mat-checkbox>
+          {{ question.question }}
+      </div>
+
+      <div *ngIf="question.type == 'extended-checkbox'" style="width: 100%; padding: 10px">
+          <mat-checkbox class="example-margin" [(ngModel)]="question.answer"></mat-checkbox>
+          {{ question.question }}
+          <br />
+          <mat-form-field *ngIf="question.answer" style="width: 100%" appearance="fill">
+              <mat-label>{{ question.extension.question }}</mat-label>
+              <input matInput placeholder="" [(ngModel)]="question.extension.answer" required />
+          </mat-form-field>
+      </div>
+
+      <div *ngIf="question.type == 'multiple-checkbox'" style="width: 100%; padding: 10px">
+          {{ question.question }}
+          <mat-checkbox *ngFor="let choice of question.questionChoices"
+              style="display: block; margin-left: 20px" class="example-margin"
+              [(ngModel)]="choice.answer">{{ choice.choice }}</mat-checkbox>
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

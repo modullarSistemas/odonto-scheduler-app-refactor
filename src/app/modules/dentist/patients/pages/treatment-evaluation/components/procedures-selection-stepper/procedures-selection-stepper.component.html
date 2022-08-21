@@ -1,0 +1,35 @@
+<app-action-buttons-container>
+  <button mat-raised-button class="primary-background" matStepperNext>Proximo</button>
+</app-action-buttons-container>
+
+<mat-card>
+  <mat-card-content>
+    <div class="procedure-selection-container">
+      <div class="procedure-selection-row">
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Procedimentos</mat-label>
+          <input matInput placeholder="" required />
+        </mat-form-field>
+
+        <mat-form-field style="width: 100%" appearance="fill">
+          <mat-label>Proteses</mat-label>
+          <input matInput placeholder="" required />
+        </mat-form-field>
+      </div>
+
+      <div class="procedure-selection-row">
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <div style="display: flex; width: 100%;">
+              <p>Procedimento tal</p>
+              <span class="toolbar-spacer"></span>
+              <button style="height: 34px !important" class="outlined-button" mat-raised-button >X</button>
+            </div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+
+      </div>
+    </div>
+  </mat-card-content>
+</mat-card>

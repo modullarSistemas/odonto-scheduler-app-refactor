@@ -1,1 +1,48 @@
-<p>info-tab works!</p>
+<mat-card>
+  <mat-card-content>
+    <app-action-buttons-container>
+      <button mat-raised-button >Editar</button>
+    </app-action-buttons-container>
+
+    <div class="info-container">
+      <div>
+        <h3>Informações do paciente</h3>
+        <p><b>Paciente: </b>{{ patient?.name }}</p>
+        <p>
+          <b>Data de Nascimento: </b> {{ patient?.birthDate }}
+        </p>
+        <p><b>CPF: </b> {{ patient?.cpf }}</p>
+        <p><b>RG: </b> {{ patient?.rg }}</p>
+        <p><b>Gênero: </b> {{ patient?.gender }}</p>
+        <p><b>E-Mail: </b> {{ patient?.email }}</p>
+        <p><b>Telefone: </b> {{ patient?.phone }}</p>
+        <p>
+          <b>Profissão: </b> {{ patient?.profession }}
+        </p>
+        <p>
+          <b>Estado civil: </b> {{ patient?.civilState }}
+        </p>
+      </div>
+
+      <div>
+        <h3>Endereço</h3>
+        <p><b>Rua: </b> {{ patient?.address?.street }}</p>
+        <p><b>Número: </b> {{ patient?.address?.number }}</p>
+        <p><b>Bairro: </b> {{ patient?.address?.district }}</p>
+        <p><b>Cidade: </b> {{ patient?.address?.city }}</p>
+        <p><b>CEP: </b> {{ patient?.address?.zipCode }}</p>
+        <p><b>Estado: </b> {{ patient?.address?.state }}</p>
+      </div>
+
+      <div>
+        <div>
+          <h3>Dependentes</h3>
+          <div *ngFor="let dependant of patient?.dependants">
+            <p><b>Nome: </b> {{dependant.name}}</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </mat-card-content>
+</mat-card>

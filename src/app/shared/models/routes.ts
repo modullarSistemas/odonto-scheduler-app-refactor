@@ -7,6 +7,19 @@ export enum routes {
   ROOT_ADM = '/admin',
   DASHBOARD_ADM = '/admin/dashboard',
   FINANCE_ADM = '/admin/finance',
+  MANUAL_REGISTERS_ADM = '/admin/manual-registers',
+  MANUAL_REGISTERS_PROCEDURES_ADM = '/admin/manual-registers/procedures',
+  MANUAL_REGISTERS_PROCEDURES_NEW_PROCEDURE_ADM = '/admin/manual-registers/procedures/new-procedure',
+  MANUAL_REGISTERS_PROTHESIS_ADM = '/admin/manual-registers/prothesis',
+  MANUAL_REGISTERS_PROTHESIS_NEW_PROTHESIS_ADM = '/admin/manual-registers/prothesis/new-prothesis',
+  MANUAL_REGISTERS_TREATMENT_PLANS_ADM = '/admin/manual-registers/treatment-plans',
+  MANUAL_REGISTERS_DENTAL_APPLIANCES_ADM = '/admin/manual-registers/dental-appliances',
+  DENTISTS_ADM = '/admin/dentists',
+  DENTISTS_DENTIST_ADM = '/admin/dentists/:id',
+  DENTISTS_NEW_DENTIST_ADM = '/admin/dentists/new-dentist',
+  SECRETARIES_ADM = '/admin/secretaries',
+  SECRETARIES_SECRETARY_ADM = '/admin/secretaries/:id',
+  SECRETARIES_NEW_SECRETARY_ADM = '/admin/secretaries/new-secretary',
 
   //DENTIST
   ROOT_DENTIST = '/dentist',
@@ -17,6 +30,8 @@ export enum routes {
   SCHEDULE_EVALUATIONS_DENTIST = '/secretary/schedule/evaluations',
   SCHEDULE_HISTORY_DENTIST = '/secretary/schedule/history',
   PATIENTS_DENTIST = '/dentist/patients',
+  PATIENTS_PATIENT_DENTIST = '/dentist/patients/',
+  PATIENTS_PATIENT_NEW_EVALUATION_DENTIST = '/dentist/patients/:id/new-evaluation/:treatmentType',
 
   //SECRETARY
   ROOT_SECRETARY = '/secretary',
@@ -29,7 +44,7 @@ export enum routes {
   SCHEDULE_NEW_EVALUATION_EVENT_SECRETARY = '/secretary/schedule/evaluations/new-evaluation-event',
   SCHEDULE_HISTORY_SECRETARY = '/secretary/schedule/history',
   PATIENTS_SECRETARY = '/secretary/patients',
-  PATIENTS_PATIENT_SECRETARY = '/secretary/patients/',
+  PATIENTS_PATIENT_SECRETARY = '/secretary/patients/:id',
   PATIENTS_NEW_PATIENT_SECRETARY = '/secretary/patients/new-patient'
 
 

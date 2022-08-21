@@ -1,5 +1,5 @@
 <mat-nav-list>
-  <mat-list-item routerLink="{{routes.DASHBOARD_DENTIST}}">
+  <mat-list-item routerLink="{{routes.DASHBOARD_ADM}}">
     <span class="full-width">
       Dashboard Administrador
     </span>
@@ -12,47 +12,56 @@
     <mat-expansion-panel-header>
       <mat-panel-title>
         <mat-icon mat-list-icon>calendar_month</mat-icon>
-        Agendamentos
+        Cadastros
       </mat-panel-title>
     </mat-expansion-panel-header>
 
     <mat-nav-list>
-      <mat-list-item routerLink="{{routes.SCHEDULE_EVALUATIONS_DENTIST}}">
-        <span class="full-width">
-          Avaliações
-        </span>
-        <mat-icon mat-list-icon>navigate_next</mat-icon>
-      </mat-list-item>
-
-      <mat-list-item routerLink="{{routes.SCHEDULE_PROCEDURES_DENTIST}}">
+      <mat-list-item routerLink="{{routes.MANUAL_REGISTERS_PROCEDURES_ADM}}">
         <span class="full-width">
           Procedimentos
         </span>
         <mat-icon mat-list-icon>navigate_next</mat-icon>
       </mat-list-item>
 
-      <mat-list-item routerLink="{{routes.SCHEDULE_HISTORY_DENTIST}}">
+      <mat-list-item routerLink="{{routes.MANUAL_REGISTERS_PROTHESIS_ADM}}">
         <span class="full-width">
-          Histórico
+          Proteses
         </span>
         <mat-icon mat-list-icon>navigate_next</mat-icon>
       </mat-list-item>
+
+      <mat-list-item routerLink="{{routes.MANUAL_REGISTERS_TREATMENT_PLANS_ADM}}">
+        <span class="full-width">
+          Planos de tratamento
+        </span>
+        <mat-icon mat-list-icon>navigate_next</mat-icon>
+      </mat-list-item>
+
+      <mat-list-item routerLink="{{routes.MANUAL_REGISTERS_DENTAL_APPLIANCES_ADM}}">
+        <span class="full-width">
+          Aparelhos ortodônticos
+        </span>
+        <mat-icon mat-list-icon>navigate_next</mat-icon>
+      </mat-list-item>
+
+
     </mat-nav-list>
   </mat-expansion-panel>
 
 </mat-accordion>
 
 <mat-nav-list>
-  <mat-list-item routerLink="{{routes.PATIENTS_DENTIST}}">
+  <mat-list-item routerLink="{{routes.DENTISTS_ADM}}">
     <span class="full-width">
-      Pacientes
+      Dentistas
     </span>
     <mat-icon mat-list-icon>groups</mat-icon>
   </mat-list-item>
 
-  <mat-list-item routerLink="{{routes.FINANCE_DENTIST}}">
+  <mat-list-item routerLink="{{routes.SECRETARIES_ADM}}">
     <span class="full-width">
-      Financeiro
+      Secretarias
     </span>
     <mat-icon mat-list-icon>monetization_on</mat-icon>
   </mat-list-item>

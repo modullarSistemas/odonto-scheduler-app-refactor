@@ -1,1 +1,46 @@
-<p>treatments-tab works!</p>
+<mat-card>
+  <mat-card-content>
+    <app-action-buttons-container>
+      <button mat-raised-button (click)="accordion?.openAll()">Pagar fatura</button>
+      <button mat-raised-button (click)="accordion?.closeAll()">Agendar procedimento</button>
+    </app-action-buttons-container>
+
+    <mat-accordion class="example-headers-align" multi>
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Tratamentos em negociacao
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+        <mat-list role="list">
+          <mat-list-item role="listitem">
+            <div style="display: flex; width: 100%;">
+              <p>Tratamento tal</p>
+              <span class="toolbar-spacer"></span>
+              <button style="height: 34px !important" class="outlined-button" mat-raised-button >Negociar</button>
+            </div>
+            <mat-divider></mat-divider>
+          </mat-list-item>
+        </mat-list>
+
+      </mat-expansion-panel>
+
+
+      <mat-expansion-panel>
+        <mat-expansion-panel-header>
+          <mat-panel-title>
+            Tratamentos
+          </mat-panel-title>
+          <mat-panel-description>
+          </mat-panel-description>
+        </mat-expansion-panel-header>
+
+
+      </mat-expansion-panel>
+    </mat-accordion>
+
+  </mat-card-content>
+</mat-card>
