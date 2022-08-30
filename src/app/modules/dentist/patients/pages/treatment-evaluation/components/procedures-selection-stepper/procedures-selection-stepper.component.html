@@ -1,34 +1,146 @@
 <app-action-buttons-container>
-  <button mat-raised-button class="primary-background" matStepperNext>Proximo</button>
+  <button mat-raised-button class="primary-background" matStepperNext>
+    Proximo
+  </button>
 </app-action-buttons-container>
 
 <mat-card>
   <mat-card-content>
     <div class="procedure-selection-container">
       <div class="procedure-selection-row">
-        <mat-form-field style="width: 100%" appearance="fill">
-          <mat-label>Procedimentos</mat-label>
-          <input matInput placeholder="" required />
+        <p><b>Procedimentos disponiveis:</b></p>
+        <mat-form-field appearance="fill">
+          <mat-label>Procedimentos </mat-label>
+          <input
+            type="text"
+            placeholder="Selecione um ou mais procedimento"
+            matInput
+            [formControl]="procedure"
+            [matAutocomplete]="auto"
+          />
+          <mat-autocomplete
+            autoActiveFirstOption
+            #auto="matAutocomplete"
+            [displayWith]="displayFnProcedure"
+            (optionSelected)="selectProcedure()"
+          >
+            <mat-option *ngIf="isLoadingProcedures">
+              <mat-spinner [diameter]="30"></mat-spinner>
+            </mat-option>
+            <mat-option
+              *ngFor="let option of procedureFilteredOptions | async"
+              [value]="option"
+            >
+              {{ option.name }}
+            </mat-option>
+          </mat-autocomplete>
         </mat-form-field>
 
-        <mat-form-field style="width: 100%" appearance="fill">
-          <mat-label>Proteses</mat-label>
-          <input matInput placeholder="" required />
-        </mat-form-field>
+        <div *ngIf="selectedProcedure">
+          <mat-form-field appearance="fill">
+            <mat-label>Selecione o dente do procedimento</mat-label>
+            <input
+              (change)="selectProcedureTooth($event)"
+              matInput
+              type="number"
+            />
+          </mat-form-field>
+
+          <mat-form-field
+            *ngIf="selectedProcedure.toggleDentist"
+            style="margin-top: 10px; margin-bottom: 10px"
+            appearance="fill"
+          >
+            <mat-autocomplete
+              autoActiveFirstOption
+              #auto3="matAutocomplete"
+              [displayWith]="displayFnDentist"
+              (optionSelected)="selectProcedureDentist()"
+            >
+              <mat-option *ngIf="isLoadingDentist">
+                <mat-spinner [diameter]="30"></mat-spinner>
+              </mat-option>
+              <mat-option
+                *ngFor="let option of dentistFilteredOptions | async"
+                [value]="option"
+              >
+                {{ option.name }}
+              </mat-option>
+            </mat-autocomplete>
+          </mat-form-field>
+
+          <br />
+
+          <mat-checkbox
+            style="padding: 10px; border-radius: 2px; margin-top: 1px"
+            class="example-margin"
+            [(ngModel)]="selectedProcedure.needProthesis"
+          >
+            Precisa de protese?
+          </mat-checkbox>
+
+          <div
+            style="padding: 10px; border-radius: 5px; margin-top: 10px"
+            *ngIf="selectedProcedure.needProthesis"
+          >
+            <p style="font-weight: bold">Selecione a prótese:</p>
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Proteses </mat-label>
+              <input
+                type="text"
+                placeholder="Selecione uma protese para o procedimento"
+                matInput
+                [formControl]="prothesis"
+                [matAutocomplete]="auto2"
+              />
+              <mat-autocomplete
+                autoActiveFirstOption
+                #auto2="matAutocomplete"
+                [displayWith]="displayFnProthesis"
+                (optionSelected)="selectProcedureProthesis()"
+              >
+                <mat-option *ngIf="isLoadingProthesis">
+                  <mat-spinner [diameter]="30"></mat-spinner>
+                </mat-option>
+                <mat-option
+                  *ngFor="let option of prothesisFilteredOptions | async"
+                  [value]="option"
+                >
+                  {{ option.name }}
+                </mat-option>
+              </mat-autocomplete>
+            </mat-form-field>
+          </div>
+
+          <br />
+
+          <button mat-raised-button (click)="addProcedure()">
+            Adicionar à lista de Procedimentos
+          </button>
+        </div>
       </div>
 
       <div class="procedure-selection-row">
-        <mat-list role="list">
-          <mat-list-item role="listitem">
-            <div style="display: flex; width: 100%;">
-              <p>Procedimento tal</p>
+        <p><b>Procedimentos Selecionados:</b></p>
+        <mat-list class="box-shadow" role="list">
+          <mat-list-item
+            *ngFor="let procedure of selectedProcedures"
+            role="listitem"
+          >
+            <div style="display: flex;width: 100%; font-size: 10px">
+              <p>{{ procedure.name }} - <b> Dente: </b> {{ procedure.tooth }} - <b>R$ </b> {{ procedure.cost }} </p>
+              <div *ngIf="procedure.needProthesis">
+                <p><b> Protese: </b> {{ procedure.prothesis.name }}</p>
+              </div>
               <span class="toolbar-spacer"></span>
-              <button style="height: 34px !important" class="outlined-button" mat-raised-button >X</button>
+              <app-close-button
+                (click)="deleteProcedure(procedure)"
+              ></app-close-button>
             </div>
+
             <mat-divider></mat-divider>
           </mat-list-item>
         </mat-list>
-
       </div>
     </div>
   </mat-card-content>

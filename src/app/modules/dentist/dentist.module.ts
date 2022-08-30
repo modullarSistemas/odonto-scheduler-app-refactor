@@ -14,7 +14,9 @@ import { TreatmentEvaluationComponent } from './patients/pages/treatment-evaluat
 import { MedicalAnamnesisStepperComponent } from './patients/pages/treatment-evaluation/components/medical-anamnesis-stepper/medical-anamnesis-stepper.component';
 import { OdontologicalAnamnesisStepperComponent } from './patients/pages/treatment-evaluation/components/odontological-anamnesis-stepper/odontological-anamnesis-stepper.component';
 import { ProceduresSelectionStepperComponent } from './patients/pages/treatment-evaluation/components/procedures-selection-stepper/procedures-selection-stepper.component';
-
+import { TreatmentComponent } from './patients/pages/treatment/treatment.component';
+import { ProceduresTreatmentTabComponent } from './patients/pages/treatment/components/procedures-treatment-tab/procedures-treatment-tab.component';
+import { InfoTreatmentTabComponent } from './patients/pages/treatment/components/info-treatment-tab/info-treatment-tab.component';
 @NgModule({
   declarations: [
     DentistComponent,
@@ -27,7 +29,10 @@ import { ProceduresSelectionStepperComponent } from './patients/pages/treatment-
     TreatmentEvaluationComponent,
     MedicalAnamnesisStepperComponent,
     OdontologicalAnamnesisStepperComponent,
-    ProceduresSelectionStepperComponent
+    ProceduresSelectionStepperComponent,
+    TreatmentComponent,
+    ProceduresTreatmentTabComponent,
+    InfoTreatmentTabComponent
   ],
   imports: [
     CommonModule,

@@ -23,6 +23,7 @@ export class AuthService {
     });
 
   }
+
   public createUser(data: any) {
     return this.httpClient.post( this.apiUrl + "api/login", data);
   }
@@ -36,12 +37,11 @@ export class AuthService {
       'franchiseId': data.franchiseId
     }
 
-    /*
     if(data.role == "dentist") {
-      let dentist: any = await this.dentistsService.getDentistIdByUserId(data.user_id).toPromise();
+      let dentist: any = await this.dentistsService.getDentistIdByUserId(data.userId).toPromise();
       user.dentistId = dentist.id;
     }
-    */
+
     localStorage.setItem('user', JSON.stringify(user));
   }
 

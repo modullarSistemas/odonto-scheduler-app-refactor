@@ -1,0 +1,9 @@
+<mat-card>
+  <mat-card-content>
+    <p style="margin-top: 10px"><span style="font-weight: bold;">Status:</span> {{ treatment.status }}</p>
+    <p style="margin-top: 10px"><span style="font-weight: bold;">Custo de mão de obra:</span> R$ {{ treatment.totalCost }},00</p>
+    <p style="margin-top: 10px"><span style="font-weight: bold;">Custo protético:</span> R$ {{ treatment.prothesisCost }},00</p>
+    <p style="margin-top: 10px"><span style="font-weight: bold;">Custo total:</span> R$ {{ treatment.prothesisCost + treatment.totalCost}},00</p>
+    <p style="margin-top: 10px"><span style="font-weight: bold;">OBS:</span> {{ treatment.description}}</p>
+  </mat-card-content>
+</mat-card>

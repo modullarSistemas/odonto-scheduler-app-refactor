@@ -30,8 +30,9 @@ export enum routes {
   SCHEDULE_EVALUATIONS_DENTIST = '/secretary/schedule/evaluations',
   SCHEDULE_HISTORY_DENTIST = '/secretary/schedule/history',
   PATIENTS_DENTIST = '/dentist/patients',
-  PATIENTS_PATIENT_DENTIST = '/dentist/patients/',
+  PATIENTS_PATIENT_DENTIST = '/dentist/patients/:id',
   PATIENTS_PATIENT_NEW_EVALUATION_DENTIST = '/dentist/patients/:id/new-evaluation/:treatmentType',
+  PATIENTS_PATIENT_TREATMENT_DENTIST = '/dentist/patients/treatment/:treatmentId',
 
   //SECRETARY
   ROOT_SECRETARY = '/secretary',

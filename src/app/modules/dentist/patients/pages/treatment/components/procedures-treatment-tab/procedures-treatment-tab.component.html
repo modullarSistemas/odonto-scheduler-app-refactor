@@ -1,0 +1,36 @@
+<mat-card>
+  <mat-card-content>
+      <div *ngIf="treatment">
+          <div *ngFor="let procedure of treatment.procedures">
+              <mat-card style="text-align: left; margin-top: 10px;" *ngIf="procedure.procedureType">
+                  <mat-card-title>{{procedure.procedureType.name}}</mat-card-title>
+                  <mat-card-subtitle>
+                    <span class="warning-background" *ngIf="procedure.status != 3">Incompleto</span>
+                    <span class="success-background" *ngIf="procedure.status == 3">Completo</span>
+                  </mat-card-subtitle>
+                  <mat-card-content>
+                      <p><span style="font-weight: bold;"> Custo: </span> R$ {{procedure.procedureType.cost}},00</p>
+                      <p><span style="font-weight: bold;"> Dente: </span> {{procedure.tooth}}</p>
+                      <p *ngIf="procedure.dentist"><span style="font-weight: bold;"> Dentista: </span> {{procedure.dentist.name}} </p>
+                      <p>
+                          <span style="font-weight: bold;"> Agendamento realizado: </span>
+                          <span class="bg-secondary text-light p-1 rounded" *ngIf="procedure.status == 1">Não</span>
+                          <span class="bg-success text-light p-1 rounded" *ngIf="procedure.status == 2">Sim</span>
+                      </p>
+
+                      <mat-divider *ngIf="procedure.needProthesis"></mat-divider>
+                      <div style="padding:1px;"></div>
+                      <p *ngIf="procedure.needProthesis"><span style="font-weight: bold; "> Protese: </span> {{procedure.prothesis.name}} </p>
+                      <p *ngIf="procedure.needProthesis"><span style="font-weight: bold;"> Custo de protese: </span> R$ {{procedure.prothesis.cost}},00 </p>
+
+                      <mat-card-actions align="start">
+                          <button mat-raised-button *ngIf="procedure.status != 3" (click)="markProcedureAsCompleted(procedure)">Marcar como completo</button>
+                      </mat-card-actions>
+
+                  </mat-card-content>
+              </mat-card>
+          </div>
+      </div>
+
+  </mat-card-content>
+</mat-card>

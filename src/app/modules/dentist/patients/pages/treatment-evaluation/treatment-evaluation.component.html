@@ -6,26 +6,59 @@
       <app-medical-anamnesis-stepper
         [medicalQuestionaire]="medicalQuestionaire"
       ></app-medical-anamnesis-stepper>
-
     </mat-step>
 
     <mat-step label="Anamnese Odontologica">
       <app-odontological-anamnesis-stepper
         [odontologicalQuestionaire]="odontologicalQuestionaire"
       ></app-odontological-anamnesis-stepper>
-
     </mat-step>
 
     <mat-step label="Selecao de procedimentos">
-      <app-procedures-selection-stepper></app-procedures-selection-stepper>
-
+      <app-procedures-selection-stepper *ngIf="treatmentTypeId"
+        [treatmentTypeId]="treatmentTypeId"
+        [selectedProcedures]="selectedProcedures"
+      ></app-procedures-selection-stepper>
     </mat-step>
 
     <mat-step label="Conferencia">
-      <p>You are now done.</p>
       <div class="stepper-button-container">
-        <button mat-button matStepperPrevious>Back</button>
-        <button mat-button (click)="stepper.reset()">Reset</button>
+        <app-action-buttons-container>
+          <button mat-button matStepperPrevious>Voltar</button>
+          <button mat-button *ngIf="!isLoading" (click)="createTreatment()" class="primary-background">Criar tratamento</button>
+          <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+        </app-action-buttons-container>
+
+        <mat-card>
+          <mat-card-content>
+            <p><b>Procedimentos Selecionados:</b></p>
+            <mat-list class="box-shadow" role="list">
+              <mat-list-item
+                *ngFor="let procedure of selectedProcedures"
+                role="listitem"
+              >
+                <div style="display: flex;width: 100%; font-size: 10px">
+                  <p>{{ procedure.name }} - <b> Dente: </b> {{ procedure.tooth }} - <b>R$ </b> {{ procedure.cost }} </p>
+                  <div *ngIf="procedure.needProthesis">
+                    <p><b> Protese: </b> {{ procedure.prothesis.name }}</p>
+                  </div>
+                  <span class="toolbar-spacer"></span>
+                  <app-close-button
+                    (click)="deleteProcedure(procedure)"
+                  ></app-close-button>
+                </div>
+
+                <mat-divider></mat-divider>
+              </mat-list-item>
+            </mat-list>
+
+            <mat-form-field style="margin-top: 10px;"appearance="fill">
+              <mat-label>OBS: </mat-label>
+              <textarea matInput [(ngModel)]="treatmentDescription" placeholder="Informacoes adicionais sobre o tratamento"></textarea>
+            </mat-form-field>
+
+          </mat-card-content>
+        </mat-card>
       </div>
     </mat-step>
   </mat-stepper>

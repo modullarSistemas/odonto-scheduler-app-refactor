@@ -33,6 +33,16 @@ body {
   color: white !important;
 }
 
+.warning-background {
+  background: #ffc107 !important;
+  color: black !important;
+}
+
+.success-background {
+  background: #198754 !important;
+  color: white !important;
+}
+
 .blue-snackbar {
   background-color: #328fc4 !important;
   color: white !important;

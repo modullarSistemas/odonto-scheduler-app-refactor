@@ -4,6 +4,7 @@ import { DentistComponent } from './container/dentist.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { PatientComponent } from './patients/pages/patient/patient.component';
 import { TreatmentEvaluationComponent } from './patients/pages/treatment-evaluation/treatment-evaluation.component';
+import { TreatmentComponent } from './patients/pages/treatment/treatment.component';
 import { PatientsComponent } from './patients/patients.component';
 
 const routes: Routes = [{
@@ -22,6 +23,9 @@ const routes: Routes = [{
     {
       path: 'patients/:id/new-evaluation/:treatmentType', component: TreatmentEvaluationComponent
     },
+    {
+      path: 'patients/treatment/:treatmentId', component: TreatmentComponent
+    }
   ]
 }];
 

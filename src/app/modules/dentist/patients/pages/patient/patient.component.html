@@ -14,7 +14,11 @@
   </mat-menu>
 </app-page-toolbar>
 
-<div class="view-container">
+<div class="loading-container" *ngIf="!patient">
+  <mat-spinner [diameter]="25"></mat-spinner>
+</div>
+
+<div class="view-container" *ngIf="patient">
   <mat-tab-group>
     <mat-tab label="Informações pessoais">
       <app-info-tab [patient]="patient"></app-info-tab>

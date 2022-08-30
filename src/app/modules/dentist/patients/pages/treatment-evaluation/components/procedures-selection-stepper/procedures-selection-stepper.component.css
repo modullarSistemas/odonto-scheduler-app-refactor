@@ -7,3 +7,13 @@
   flex: 1;
   padding: 10px;
 }
+
+mat-form-field {
+  width: 100%;
+}
+
+mat-list {
+  padding: 10px;
+  min-height: 30px;
+  border-radius: 5px;
+}

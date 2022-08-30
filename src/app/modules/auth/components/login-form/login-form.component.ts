@@ -31,8 +31,8 @@ export class LoginFormComponent implements OnInit {
     this.service
       .login(this.form.get('username')?.value, this.form.get('password')?.value)
       .subscribe({
-        next: (res: any) => {
-          this.service.setUserData(res);
+        next: async (res: any) => {
+          await this.service.setUserData(res);
 
           if (res.role == 'admin') {
             this.router.navigate([routes.DASHBOARD_ADM]).then();
