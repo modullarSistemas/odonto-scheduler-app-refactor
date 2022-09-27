@@ -31,7 +31,7 @@ export class TreatmentsService {
     return this.httpClient.post(this.apiUrl + "api/Treatment/CreateTreatmentPlan/" + treatmentId, data);
   }
 
-  UpdateProcedureStatus(procedureId: any,status: any) {
+  updateProcedureStatus(procedureId: any, status: any) {
     return this.httpClient.put( this.apiUrl + "api/Treatment/UpdateProcedureStatus/" + procedureId+ "?status=" + status, {});
   }
 

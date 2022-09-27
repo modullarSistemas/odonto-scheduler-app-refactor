@@ -23,7 +23,7 @@ export class ProceduresTreatmentTabComponent implements OnInit {
   }
 
   async markProcedureAsCompleted(procedure: any) {
-    await lastValueFrom(this.treatmentService.UpdateProcedureStatus(procedure.id, ProcedureStatusEnum.Finalizado));
+    await lastValueFrom(this.treatmentService.updateProcedureStatus(procedure.id, ProcedureStatusEnum.Finalizado));
     const snackBarRef = this.snackBar.open('Procedimento marcado como completo!!', 'Ok', {duration: 2000, panelClass: 'blue-snackbar'});
     snackBarRef.afterDismissed().subscribe(info => {
       this.updateTreatment();

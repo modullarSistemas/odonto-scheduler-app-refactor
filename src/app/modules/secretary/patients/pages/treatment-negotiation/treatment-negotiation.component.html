@@ -1,0 +1,120 @@
+<mat-toolbar class="toolbar-view-container">
+  <h1 *ngIf="treatment" class="app-name">
+    Tratamento {{ treatment?.treatmentType }} {{ treatment?.id }} de
+    {{ treatment.pacient.name }}
+  </h1>
+  <span class="toolbar-spacer"></span>
+</mat-toolbar>
+
+<div class="loading-container" *ngIf="!treatment">
+  <mat-spinner [diameter]="25"></mat-spinner>
+</div>
+
+<div class="view-container" *ngIf="treatment">
+  <mat-card>
+    <mat-card-content>
+      <mat-stepper orientation="vertical" [linear]="true" #stepper>
+        <mat-step [stepControl]="installmentsForm">
+          <form [formGroup]="installmentsForm">
+            <ng-template matStepLabel>Negociacao</ng-template>
+            <p style="margin-top: 10px">
+              <span style="font-weight: bold">Custo de mão de obra:</span> R$
+              {{ treatment.totalCost }},00
+            </p>
+
+            <p style="margin-top: 10px">
+              <span style="font-weight: bold">Custo protético:</span> R$
+              {{ treatment.prothesisCost }},00
+            </p>
+
+            <p style="margin-top: 10px">
+              <span style="font-weight: bold">Custo total:</span> R$
+              {{ treatment.price }},00 com <b>R$ {{ downPayment }},00 </b> de
+              entrada
+            </p>
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Entrada de pagamento</mat-label>
+              <input
+                formControlName="downPayment"
+                type="number"
+                (change)="calculateInstallments()"
+                matInput
+                min="0"
+              />
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Quantidade de parcelas</mat-label>
+              <input
+                (change)="calculateInstallments()"
+                formControlName="installmentsQuantity"
+                type="number"
+                matInput
+                min="1"
+              />
+            </mat-form-field>
+
+            <br />
+
+            <mat-form-field class="example-full-width" appearance="fill">
+              <mat-label>Dia de vencimento:</mat-label>
+              <input
+                type="number"
+                formControlName="installmentsDueDay"
+                matInput
+                min="1"
+                max="30"
+              />
+            </mat-form-field>
+
+            <p>
+              <b>{{ installmentQuantity }}</b> parcelas de
+              <b>R$ {{ installmentValue }},00</b> com
+              <b>R$ {{ this.downPayment }},00</b> de entrada.
+            </p>
+
+            <div>
+              <button
+                mat-button
+                class="primary-background"
+                *ngIf="!isLoading"
+                (click)="createInstallments(stepper)"
+              >
+                Gerar Parcelas
+              </button>
+              <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+            </div>
+          </form>
+        </mat-step>
+
+        <mat-step>
+          <ng-template matStepLabel>Geracao de contrato</ng-template>
+          <p style="margin-top: 10px">
+            <span style="font-weight: bold">Custo total:</span> R$
+            {{ treatment.price }},00 com <b>R$ {{ downPayment }},00 </b> de
+            entrada
+          </p>
+
+          <p>
+            <b>Parcelas: </b>
+            <b>{{ installmentQuantity }}</b> parcelas de
+            <b>R$ {{ installmentValue }},00</b>
+          </p>
+
+          <p>
+            <b>Dia de vencimento da parcela:</b> {{dueDay}}
+          </p>
+
+          <div>
+            <button mat-button  class="primary-background" (click)="generateContract()">Gerar contrato</button>
+          </div>
+
+        </mat-step>
+
+      </mat-stepper>
+    </mat-card-content>
+  </mat-card>
+</div>

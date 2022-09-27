@@ -31,9 +31,9 @@ export class AuthService {
   public async setUserData(data: any) {
     let user: any = {
       'token': data.token,
-      'username': data.username,
+      'username': data.user,
       'role': data.role,
-      'userId': data.user_id,
+      'userId': data.userId,
       'franchiseId': data.franchiseId
     }
 
@@ -60,5 +60,10 @@ export class AuthService {
 
   public getToken(): string{
     return localStorage.getItem('token') as string;
+  }
+
+  public getFranchiseId() {
+    let user = JSON.parse(localStorage.getItem('user') as string);
+    return  user.franchiseId;
   }
 }

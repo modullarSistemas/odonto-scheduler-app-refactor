@@ -20,6 +20,11 @@ import { PatientCardComponent } from './patients/components/patient-card/patient
 import { InfoTabComponent } from './patients/patient/components/info-tab/info-tab.component';
 import { TreatmentsTabComponent } from './patients/patient/components/treatments-tab/treatments-tab.component';
 import { FinancialTabComponent } from './patients/patient/components/financial-tab/financial-tab.component';
+import { TreatmentNegotiationComponent } from './patients/pages/treatment-negotiation/treatment-negotiation.component';
+import { CreateEvalutionSchedulingDialogComponent } from './patients/patient/components/create-evalution-scheduling-dialog/create-evalution-scheduling-dialog.component';
+import { EvaluationCardComponent } from './schedule/evaluations/components/evaluation-card/evaluation-card.component';
+import { CreateProcedureSchedulingDialogComponent } from './patients/patient/components/create-procedure-scheduling-dialog/create-procedure-scheduling-dialog.component';
+import { ProcedureCardComponent } from './schedule/procedures/components/procedure-card/procedure-card.component';
 
 @NgModule({
   declarations: [
@@ -39,12 +44,19 @@ import { FinancialTabComponent } from './patients/patient/components/financial-t
     PatientCardComponent,
     InfoTabComponent,
     TreatmentsTabComponent,
-    FinancialTabComponent
+    FinancialTabComponent,
+    TreatmentNegotiationComponent,
+    CreateEvalutionSchedulingDialogComponent,
+    EvaluationCardComponent,
+    CreateProcedureSchedulingDialogComponent,
+    ProcedureCardComponent
   ],
   imports: [
     CommonModule,
     SecretaryRoutingModule,
     SharedModule
+  ], entryComponents: [
+    CreateEvalutionSchedulingDialogComponent
   ]
 })
 export class SecretaryModule { }

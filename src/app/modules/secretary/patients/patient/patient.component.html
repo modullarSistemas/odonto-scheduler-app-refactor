@@ -1,16 +1,22 @@
 <mat-toolbar class="toolbar-view-container">
   <h1 class="app-name">{{patient?.name}}</h1>
   <span class="toolbar-spacer"></span>
+  <button mat-raised-button (click)="openCreateEvaluationSchedulingDialog()"  class="primary-background" style="margin: 5px;">Agendar avaliacao</button>
+  <button mat-raised-button (click)="openCreateProcedureSchedulingDialog()" class="primary-background" style="margin: 5px;">Agendar procedimento</button>
 </mat-toolbar>
 
-<div class="view-container">
+<div class="loading-container" *ngIf="!patient">
+  <mat-spinner [diameter]="25"></mat-spinner>
+</div>
+
+<div class="view-container" *ngIf="patient">
   <mat-tab-group >
     <mat-tab label="Informações pessoais">
       <app-info-tab [patient]="patient"></app-info-tab>
     </mat-tab>
 
     <mat-tab label="Tratamentos">
-      <app-treatments-tab [treatments]="treatments"></app-treatments-tab>
+      <app-treatments-tab *ngIf="treatments" [treatments]="treatments"></app-treatments-tab>
     </mat-tab>
 
     <mat-tab label="Financeiro">

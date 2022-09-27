@@ -3,6 +3,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { SecretaryComponent } from './container/secretary.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
 import { NewPatientComponent } from './patients/new-patient/new-patient.component';
+import { TreatmentNegotiationComponent } from './patients/pages/treatment-negotiation/treatment-negotiation.component';
 import { PatientComponent } from './patients/patient/patient.component';
 import { PatientsComponent } from './patients/patients.component';
 import { EvaluationsComponent } from './schedule/evaluations/evaluations.component';
@@ -24,6 +25,9 @@ const routes: Routes = [
       },
       {
         path: 'patients/new-patient', component: NewPatientComponent
+      },
+      {
+        path: 'patients/treatment-negotiation/:treatmentId', component: TreatmentNegotiationComponent
       },
       {
         path: 'patients/:id', component: PatientComponent

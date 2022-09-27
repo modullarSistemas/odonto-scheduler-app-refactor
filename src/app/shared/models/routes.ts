@@ -46,8 +46,8 @@ export enum routes {
   SCHEDULE_HISTORY_SECRETARY = '/secretary/schedule/history',
   PATIENTS_SECRETARY = '/secretary/patients',
   PATIENTS_PATIENT_SECRETARY = '/secretary/patients/:id',
-  PATIENTS_NEW_PATIENT_SECRETARY = '/secretary/patients/new-patient'
-
+  PATIENTS_NEW_PATIENT_SECRETARY = '/secretary/patients/new-patient',
+  PATIENTS_TREATMENT_NEGOTIATION_SECRETARY = '/secretary/patients/treatment-negotiation/:treatmentId'
 
 
 }

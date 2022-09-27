@@ -1,12 +1,11 @@
 <mat-card>
   <mat-card-content>
     <app-action-buttons-container>
-      <button mat-raised-button (click)="accordion?.openAll()">Pagar fatura</button>
-      <button mat-raised-button (click)="accordion?.closeAll()">Agendar procedimento</button>
+
     </app-action-buttons-container>
 
     <mat-accordion class="example-headers-align" multi>
-      <mat-expansion-panel>
+      <mat-expansion-panel [expanded]="true">
         <mat-expansion-panel-header>
           <mat-panel-title>
             Tratamentos em negociacao
@@ -16,11 +15,13 @@
         </mat-expansion-panel-header>
 
         <mat-list role="list">
-          <mat-list-item role="listitem">
-            <div style="display: flex; width: 100%;">
-              <p>Tratamento tal</p>
+          <mat-list-item *ngFor="let treatment of treatmentsInNegotiation"role="listitem">
+            <div style="display: flex; width: 100%; padding-top: 10px; padding-bottom: 10px;">
+              <p>Tratamento {{treatment?.treatmentType}} {{treatment?.id}}</p>
               <span class="toolbar-spacer"></span>
-              <button style="height: 34px !important" class="outlined-button" mat-raised-button >Negociar</button>
+              <div style="display: flex;">
+                <button mat-raised-button style="margin: auto;"  class="primary-background" (click)="navigateToTreatmentNegotiation(treatment.id)">Negociar</button>
+              </div>
             </div>
             <mat-divider></mat-divider>
           </mat-list-item>
@@ -37,7 +38,19 @@
           <mat-panel-description>
           </mat-panel-description>
         </mat-expansion-panel-header>
-
+        <mat-list-item *ngFor="let treatment of treatmentsHistory"role="listitem">
+          <div style="display: flex; width: 100%;">
+            <p>Tratamento {{treatment?.treatmentType}} {{treatment?.id}} - {{treatment.status}}</p>
+            <span class="toolbar-spacer"></span>
+            <div style="display: flex; padding: 5px;">
+              <button mat-raised-button style="margin: auto;">Pagar fatura</button>
+            </div>
+            <div style="display: flex; padding: 5px;">
+              <button mat-raised-button style="margin: auto;">Agendar procedimento</button>
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
 
       </mat-expansion-panel>
     </mat-accordion>
