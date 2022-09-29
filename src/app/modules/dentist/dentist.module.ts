@@ -17,6 +17,9 @@ import { ProceduresSelectionStepperComponent } from './patients/pages/treatment-
 import { TreatmentComponent } from './patients/pages/treatment/treatment.component';
 import { ProceduresTreatmentTabComponent } from './patients/pages/treatment/components/procedures-treatment-tab/procedures-treatment-tab.component';
 import { InfoTreatmentTabComponent } from './patients/pages/treatment/components/info-treatment-tab/info-treatment-tab.component';
+import { ScheduleComponent } from './schedule/schedule.component';
+import { EvaluationsComponent } from './schedule/evaluations/evaluations.component';
+import { ProceduresComponent } from './schedule/procedures/procedures.component';
 @NgModule({
   declarations: [
     DentistComponent,
@@ -32,7 +35,10 @@ import { InfoTreatmentTabComponent } from './patients/pages/treatment/components
     ProceduresSelectionStepperComponent,
     TreatmentComponent,
     ProceduresTreatmentTabComponent,
-    InfoTreatmentTabComponent
+    InfoTreatmentTabComponent,
+    ScheduleComponent,
+    EvaluationsComponent,
+    ProceduresComponent
   ],
   imports: [
     CommonModule,
