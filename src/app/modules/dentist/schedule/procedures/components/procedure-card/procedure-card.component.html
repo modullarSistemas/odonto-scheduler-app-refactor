@@ -1,0 +1,78 @@
+<mat-card *ngIf="scheduling.status == 'Novo agendamento'" class="box-shadow container primary-background">
+  <mat-card-header>
+    <mat-card-title >Data: {{scheduling.startDate | date:"dd/MM/yyyy HH:mm"}}</mat-card-title>
+    <mat-card-subtitle style="color: white !important; font-size: 12px !important; ">Status: {{scheduling.status}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p><b>Paciente: </b> {{scheduling.pacient.name}}</p>
+    <p><b>Dentista: </b> {{scheduling.dentist.name}}</p>
+    <p><b>Procedimento: </b> {{scheduling.procedureType.name}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="loading-container" *ngIf="isLoading">
+      <mat-spinner [diameter]="25"></mat-spinner>
+    </div>
+
+    <div  *ngIf="!isLoading">
+      <button (click)="updateSchedulingStatusPresence()" mat-raised-button>Presenca</button>
+      <button (click)="updateSchedulingStatusAbsence()" mat-raised-button>Ausencia</button>
+    </div>
+  </mat-card-actions>
+</mat-card>
+
+<mat-card *ngIf="scheduling.status == 'Paciente ausente'" class="box-shadow container warning-background">
+  <mat-card-header>
+    <mat-card-title >Data: {{scheduling.startDate | date:"dd/MM/yyyy HH:mm"}}</mat-card-title>
+    <mat-card-subtitle style="font-size: 12px !important; ">{{scheduling.status}}</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p><b>Paciente: </b> {{scheduling.pacient.name}}</p>
+    <p><b>Dentista: </b> {{scheduling.dentist.name}}</p>
+    <p><b>Procedimento: </b> {{scheduling.procedureType.name}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="loading-container" *ngIf="isLoading">
+      <mat-spinner [diameter]="25"></mat-spinner>
+    </div>
+
+  </mat-card-actions>
+</mat-card>
+
+<mat-card  *ngIf="scheduling.status == 'Paciente presente'" class="box-shadow container success-background">
+  <mat-card-header>
+    <mat-card-title >Data: {{scheduling.startDate | date:"dd/MM/yyyy HH:mm"}}</mat-card-title>
+    <mat-card-subtitle style="color: white !important; font-size: 12px !important; ">Status: {{scheduling.status}}, aguardando finalizar</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p><b>Paciente: </b> {{scheduling.pacient.name}}</p>
+    <p><b>Dentista: </b> {{scheduling.dentist.name}}</p>
+    <p><b>Procedimento: </b> {{scheduling.procedureType.name}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="loading-container" *ngIf="isLoading">
+      <mat-spinner [diameter]="25"></mat-spinner>
+    </div>
+
+    <button *ngIf="!isLoading" (click)="updateSchedulingStatusConfirmed()" mat-raised-button>Finalizar</button>
+    <button *ngIf="!isLoading" (click)="navigateToPatient(scheduling.pacient.id)" mat-raised-button>Ver Paciente</button>
+
+  </mat-card-actions>
+</mat-card>
+
+
+<mat-card  *ngIf="scheduling.status == 'Paciente confirmou'" class="box-shadow container">
+  <mat-card-header>
+    <mat-card-title >Data: {{scheduling.startDate | date:"dd/MM/yyyy HH:mm"}}</mat-card-title>
+    <mat-card-subtitle style="font-size: 12px !important; ">Status: agendamento finalizado</mat-card-subtitle>
+  </mat-card-header>
+  <mat-card-content>
+    <p><b>Paciente: </b> {{scheduling.pacient.name}}</p>
+    <p><b>Dentista: </b> {{scheduling.dentist.name}}</p>
+    <p><b>Procedimento: </b> {{scheduling.procedureType.name}}</p>
+  </mat-card-content>
+  <mat-card-actions>
+    <div class="loading-container" *ngIf="isLoading">
+      <mat-spinner [diameter]="25"></mat-spinner>
+    </div>
+  </mat-card-actions>
+</mat-card>

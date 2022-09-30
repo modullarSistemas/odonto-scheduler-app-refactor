@@ -20,6 +20,8 @@ import { InfoTreatmentTabComponent } from './patients/pages/treatment/components
 import { ScheduleComponent } from './schedule/schedule.component';
 import { EvaluationsComponent } from './schedule/evaluations/evaluations.component';
 import { ProceduresComponent } from './schedule/procedures/procedures.component';
+import { EvaluationCardComponent } from './schedule/evaluations/components/evaluation-card/evaluation-card.component';
+import { ProcedureCardComponent } from './schedule/procedures/components/procedure-card/procedure-card.component';
 @NgModule({
   declarations: [
     DentistComponent,
@@ -38,7 +40,9 @@ import { ProceduresComponent } from './schedule/procedures/procedures.component'
     InfoTreatmentTabComponent,
     ScheduleComponent,
     EvaluationsComponent,
-    ProceduresComponent
+    ProceduresComponent,
+    EvaluationCardComponent,
+    ProcedureCardComponent
   ],
   imports: [
     CommonModule,

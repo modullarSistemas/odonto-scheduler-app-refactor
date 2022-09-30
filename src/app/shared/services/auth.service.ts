@@ -66,4 +66,9 @@ export class AuthService {
     let user = JSON.parse(localStorage.getItem('user') as string);
     return  user.franchiseId;
   }
+
+  public getDentistId() {
+    let user = JSON.parse(localStorage.getItem('user') as string);
+    return  user.dentistId;
+  }
 }

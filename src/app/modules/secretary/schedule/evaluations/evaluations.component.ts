@@ -101,7 +101,7 @@ export class EvaluationsComponent implements OnInit {
   getLast7DaysSchedulings() {
     let startDate = new Date();
     let endDate = moment(startDate).subtract(7, "days").toDate();
-    console.log(endDate);
+
     let schedulings: any = [];
     this.schedulings.forEach( scheduling => {
       if(moment(scheduling.startDate).isBetween(endDate, startDate)) {
@@ -118,7 +118,10 @@ export class EvaluationsComponent implements OnInit {
 
     let schedulings: any = [];
     this.schedulings.forEach( scheduling => {
+      console.log(scheduling);
+
       if(moment(scheduling.startDate).isBetween(endDate, startDate)) {
+
         schedulings.push(scheduling);
       }
     });

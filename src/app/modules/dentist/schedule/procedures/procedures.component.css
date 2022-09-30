@@ -1,0 +1,6 @@
+.schedulings-list-container {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: start;
+  align-items: start;
+}

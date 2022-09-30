@@ -6,6 +6,8 @@ import { PatientComponent } from './patients/pages/patient/patient.component';
 import { TreatmentEvaluationComponent } from './patients/pages/treatment-evaluation/treatment-evaluation.component';
 import { TreatmentComponent } from './patients/pages/treatment/treatment.component';
 import { PatientsComponent } from './patients/patients.component';
+import { EvaluationsComponent } from './schedule/evaluations/evaluations.component';
+import { ProceduresComponent } from './schedule/procedures/procedures.component';
 
 const routes: Routes = [{
   path: '',
@@ -25,7 +27,16 @@ const routes: Routes = [{
     },
     {
       path: 'patients/treatment/:treatmentId', component: TreatmentComponent
-    }
+    },
+    {
+      path: 'schedule/evaluations', component: EvaluationsComponent
+    },
+    {
+      path: 'schedule/procedures', component: ProceduresComponent
+    },/*
+    {
+      path: 'schedule/history', component: HistoryComponent
+    }*/
   ]
 }];
 

@@ -1,1 +1,125 @@
-<p>procedures works!</p>
+<mat-toolbar class="toolbar-view-container">
+  <h1 class="app-name">Procedimentos</h1>
+  <span class="toolbar-spacer"></span>
+
+</mat-toolbar>
+
+<div class="view-container">
+  <div class="loading-container" *ngIf="isLoading">
+    <mat-spinner [diameter]="25"></mat-spinner>
+  </div>
+
+  <mat-tab-group *ngIf="!isLoading">
+    <mat-tab label="Ultimos 30 dias">
+      <div class="evaluations-list-container">
+        <div *ngFor="let calendarItem of last30DaysSchedulings">
+          <h3>{{ calendarItem[0] }}</h3>
+          <div
+            class="schedulings-list-container"
+            *ngFor="let scheduling of calendarItem[1].events"
+          >
+            <app-procedure-card
+              [scheduling]="scheduling"
+              [updateSchedulings]="boundedGetEvaluatinosScheduling"
+            ></app-procedure-card>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Ultimos 7 dias">
+      <div class="evaluations-list-container">
+        <div *ngFor="let calendarItem of last7DaysSchedulings">
+          <h3>{{ calendarItem[0] }}</h3>
+          <div
+            class="schedulings-list-container"
+            *ngFor="let scheduling of calendarItem[1].events"
+          >
+            <app-procedure-card
+              [scheduling]="scheduling"
+              [updateSchedulings]="boundedGetEvaluatinosScheduling"
+            ></app-procedure-card>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Dia">
+      <div style="display: flex; width: 100%">
+        <mat-form-field style="margin: auto; padding: 10px">
+          <input
+            matInput
+            [ngxMatDatetimePicker]="picker"
+            [(ngModel)]="dayDate"
+            (ngModelChange)="getDayEvaluationScheduling()"
+            placeholder="Selecione o dia"
+          />
+          <mat-datepicker-toggle
+            matSuffix
+            [for]="$any(picker)"
+          ></mat-datepicker-toggle>
+          <ngx-mat-datetime-picker #picker [enableMeridian]="false">
+          </ngx-mat-datetime-picker>
+        </mat-form-field>
+      </div>
+
+      <div class="evaluations-list-container">
+        <div
+          style="display: flex; width: 100%"
+          *ngIf="daySchedulings.length == 0"
+        >
+          <p style="padding: 10px; margin: auto">
+            Nenhum agendamento para o dia de hoje
+          </p>
+        </div>
+
+        <div *ngFor="let calendarItem of daySchedulings">
+          <h3>{{ calendarItem[0] }}</h3>
+          <div
+            class="schedulings-list-container"
+            *ngFor="let scheduling of calendarItem[1].events"
+          >
+            <app-procedure-card
+              [scheduling]="scheduling"
+              [updateSchedulings]="boundedGetEvaluatinosScheduling"
+            ></app-procedure-card>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Proximos 7 dias">
+      <div class="evaluations-list-container">
+        <div *ngFor="let calendarItem of next7DaysSchedulings">
+          <h3>{{ calendarItem[0] }}</h3>
+          <div
+            class="schedulings-list-container"
+            *ngFor="let scheduling of calendarItem[1].events"
+          >
+            <app-procedure-card
+              [scheduling]="scheduling"
+              [updateSchedulings]="boundedGetEvaluatinosScheduling"
+            ></app-procedure-card>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+
+    <mat-tab label="Proximos 30 dias">
+      <div class="evaluations-list-container">
+        <div *ngFor="let calendarItem of next30DaysSchedulings">
+          <h3>{{ calendarItem[0] }}</h3>
+          <div
+            class="schedulings-list-container"
+            *ngFor="let scheduling of calendarItem[1].events"
+          >
+            <app-procedure-card
+              [scheduling]="scheduling"
+              [updateSchedulings]="boundedGetEvaluatinosScheduling"
+            ></app-procedure-card>
+          </div>
+        </div>
+      </div>
+    </mat-tab>
+  </mat-tab-group>
+</div>

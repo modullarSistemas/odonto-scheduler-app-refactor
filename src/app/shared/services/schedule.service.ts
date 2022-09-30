@@ -25,6 +25,10 @@ export class ScheduleService {
     return this.httpClient.get(this.apiUrl + "api/ProcedureScheduling/ListByFranchiseId/" + franchiseId);
   }
 
+  getProcedursSchedulingByDentistId(dentistId: any) {
+    return this.httpClient.get(this.apiUrl + "api/ProcedureScheduling/ListByDentistId/" + dentistId);
+  }
+
   createProcedureScheduling(data: any) {
     return this.httpClient.post( `${this.apiUrl}api/ProcedureScheduling`, data)
   }

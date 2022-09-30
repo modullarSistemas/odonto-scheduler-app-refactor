@@ -11,6 +11,7 @@ body {
 
 .view-container {
   padding: 0 16px;
+  padding-bottom: 10px;
 }
 
 .toolbar-spacer {
