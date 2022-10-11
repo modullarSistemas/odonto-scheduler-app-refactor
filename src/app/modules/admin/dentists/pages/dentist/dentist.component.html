@@ -1,1 +1,27 @@
-<p>dentist works!</p>
+<app-page-toolbar [title]="dentist?.name">
+  <button
+    mat-stroked-button
+  >
+    ACTION
+  </button>
+
+</app-page-toolbar>
+
+<div class="loading-container" *ngIf="!dentist">
+  <mat-spinner [diameter]="25"></mat-spinner>
+</div>
+
+<div class="view-container" *ngIf="dentist">
+  <mat-card>
+    <mat-card-content>
+          <h3>Informações do dentista</h3>
+          <p><b>Nome: </b>{{ dentist?.name }}</p>
+          <p><b>Categoria: </b>{{ dentist?.category }}</p>
+          <p><b>Comissao: </b>{{ dentist?.comission }}</p>
+          <mat-divider style="padding: 5px;"></mat-divider>
+          <b>Informacoes de acesso</b>
+          <p><b>Usuario de login: </b></p>
+          <p><b>Senha: </b> </p>
+    </mat-card-content>
+  </mat-card>
+</div>

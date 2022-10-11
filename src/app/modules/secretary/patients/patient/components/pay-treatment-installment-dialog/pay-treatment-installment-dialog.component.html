@@ -1,0 +1,22 @@
+<h2 mat-dialog-title>Pagar parcela</h2>
+
+<mat-dialog-content>
+
+  <mat-form-field class="example-full-width" appearance="fill">
+    <mat-label>Forma de pagamento</mat-label>
+    <mat-select [(ngModel)]="paymentMethod">
+      <mat-option *ngFor="let method of paymentMethodOptions" [value]="method.value">{{method.name}}</mat-option>
+    </mat-select>
+  </mat-form-field>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+    <button mat-button mat-dialog-close>Cancelar</button>
+    <button *ngIf="!isLoading" (click)="payInstallment()" mat-button cdkFocusInitial>
+    Confirmar pagamento
+    </button>
+
+  <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+
+</mat-dialog-actions>

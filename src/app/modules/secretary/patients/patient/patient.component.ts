@@ -19,13 +19,14 @@ export class PatientComponent implements OnInit {
   patient?: Patient;
   treatments?: Treatment[];
 
+  boundedGetTreatment = this.getTreatments.bind(this);
+
   constructor(
     public patientsService: PatientsService,
     public treatmentsService: TreatmentsService,
     private route: ActivatedRoute,
     public dialog: MatDialog,
     private snackBar: MatSnackBar
-
   ) {
     this.patientId = this.route.snapshot.paramMap.get('id');
     this.getPatient();

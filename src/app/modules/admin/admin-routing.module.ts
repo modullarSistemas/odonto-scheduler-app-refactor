@@ -14,6 +14,7 @@ import { SecretaryComponent } from './secretaries/pages/secretary/secretary.comp
 import { SecretariesComponent } from './secretaries/secretaries.component';
 import { NewProcedureComponent } from './manual-registers/pages/procedures/pages/new-procedure/new-procedure.component';
 import { NewProthesisComponent } from './manual-registers/pages/prothesis/pages/new-prothesis/new-prothesis.component';
+import { DentistsComponent } from './dentists/dentists.component';
 
 const routes: Routes = [{
   path: '',
@@ -44,7 +45,7 @@ const routes: Routes = [{
       path: 'manual-registers/treatment-plans', component: TreatmentPlansComponent
     },
     {
-      path: 'dentists', component: DentistComponent
+      path: 'dentists', component: DentistsComponent
     },
     {
       path: 'dentists/new-dentist', component: NewDentistComponent

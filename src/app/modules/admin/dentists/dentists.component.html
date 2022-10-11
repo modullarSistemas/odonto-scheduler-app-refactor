@@ -1,1 +1,23 @@
-<p>dentists works!</p>
+<app-page-toolbar title="Dentistas">
+  <button mat-stroked-button class="primary-background" routerLink="{{routes.DENTISTS_NEW_DENTIST_ADM}}">Novo Dentista</button>
+</app-page-toolbar>
+
+<div class="view-container">
+  <mat-card *ngIf="dentists">
+    <mat-card-content>
+      <mat-list>
+        <mat-list-item (click)="navigateToDentist(dentist.id)"*ngFor="let dentist of dentists">
+          <div>
+            {{dentist?.name}}
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+<div class="loading-container" *ngIf="!dentists">
+    <mat-spinner [diameter]="25"></mat-spinner>
+</div>
+</div>
+

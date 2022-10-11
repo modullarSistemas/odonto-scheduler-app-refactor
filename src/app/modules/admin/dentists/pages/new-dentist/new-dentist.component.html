@@ -1,1 +1,46 @@
-<p>new-dentist works!</p>
+<app-page-toolbar title="Novo dentista">
+  <button mat-stroked-button class="primary-background"  *ngIf="!isLoading" (click)="createDentist()">Adicionar</button>
+  <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+</app-page-toolbar>
+
+<mat-card>
+  <mat-card-content>
+    <form style="width:100%;" [formGroup]="userForm">
+      <h3>Informacoes para cadastro do usuario</h3>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Usuario para login</mat-label>
+        <input formControlName="username" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Email</mat-label>
+        <input formControlName="email"  matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Senha</mat-label>
+        <input formControlName="password"  matInput>
+      </mat-form-field>
+    </form>
+    <br>
+    <form style="width:100%;" [formGroup]="dentistForm">
+      <h3>Informacoes do dentista</h3>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Nome</mat-label>
+        <input formControlName="name" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>% comissao</mat-label>
+        <input formControlName="comission" type="number" matInput>
+      </mat-form-field>
+      <br>
+      <mat-form-field class="example-full-width" appearance="fill">
+        <mat-label>Categoria</mat-label>
+        <mat-select formControlName="category">
+          <mat-option [value]="dentistCategoryEnum.GeneralPractitioner">Clinico Geral</mat-option>
+        </mat-select>
+      </mat-form-field>
+    </form>
+  </mat-card-content>
+</mat-card>

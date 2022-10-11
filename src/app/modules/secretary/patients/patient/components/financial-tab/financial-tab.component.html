@@ -1,1 +1,99 @@
-<p>Historico de pagamentos etc</p>
+<mat-card>
+  <mat-card-content>
+    <app-action-buttons-container> </app-action-buttons-container>
+
+    <div *ngFor="let treatment of treatments">
+      <p>Tratamento {{ treatment?.treatmentType }} {{ treatment?.id }}</p>
+
+      <mat-accordion class="example-headers-align" multi>
+        <mat-expansion-panel [expanded]="false">
+          <mat-expansion-panel-header>
+            <mat-panel-title> Parcelas </mat-panel-title>
+            <mat-panel-description> </mat-panel-description>
+          </mat-expansion-panel-header>
+
+          <mat-list role="list">
+            <mat-list-item
+              *ngIf="treatment.installments.length == 0"
+              role="listitem"
+            >
+              <div
+                style="
+                  display: flex;
+                  width: 100%;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                "
+              >
+                <p>Nenhuma parcela gerada.</p>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+
+            <mat-list-item
+              *ngFor="let installment of treatment.installments"
+              role="listitem"
+            >
+              <div
+                style="
+                  display: flex;
+                  width: 100%;
+                  padding-top: 10px;
+                  padding-bottom: 10px;
+                "
+              >
+                <p>
+                  <span style="font-weight: bold"> Custo: </span> R$
+                  {{ installment.cost }},00
+                </p>
+                <p>
+                  <span style="font-weight: bold; margin-left: 5px">
+                    Vencimento:
+                  </span>
+                  {{ installment.due | date: "dd/MM/yyyy " }}
+                </p>
+                <p>
+                  <span style="font-weight: bold; margin-left: 5px">
+                    Dia do pagamento:
+                  </span>
+                  {{ installment.payday | date: "dd/MM/yyyy " }}
+                </p>
+                <p>
+                  <span
+                    style="font-weight: bold; margin-left: 5px"
+                    *ngIf="installment.paymentMethod != ''"
+                  >
+                    Metodo de pagamento:
+                  </span>
+                  {{ installment.paymentMethod }}
+                </p>
+                <span class="toolbar-spacer"></span>
+                <div style="display: flex">
+                  <button
+                    mat-raised-button
+                    style="margin: auto"
+                    *ngIf="installment.paymentMethod == ''"
+                    class="primary-background"
+                    (click)="openPayTreatmentInstallmentDialog(installment)"
+                  >
+                    PAGAR
+                  </button>
+                  <button
+                    mat-raised-button
+                    style="margin: auto"
+                    *ngIf="installment.paymentMethod != ''"
+                    disabled
+                    class="success-background"
+                  >
+                    LIQUIDADA
+                  </button>
+                </div>
+              </div>
+              <mat-divider></mat-divider>
+            </mat-list-item>
+          </mat-list>
+        </mat-expansion-panel>
+      </mat-accordion>
+    </div>
+  </mat-card-content>
+</mat-card>

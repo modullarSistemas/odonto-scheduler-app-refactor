@@ -20,9 +20,7 @@
     </mat-tab>
 
     <mat-tab label="Financeiro">
-      <app-financial-tab></app-financial-tab>
+      <app-financial-tab *ngIf="treatments" [getTreatments]="boundedGetTreatment" [treatments]="treatments"></app-financial-tab>
     </mat-tab>
   </mat-tab-group>
 </div>
-
-

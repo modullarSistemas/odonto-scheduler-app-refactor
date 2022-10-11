@@ -25,6 +25,7 @@ import { CreateEvalutionSchedulingDialogComponent } from './patients/patient/com
 import { EvaluationCardComponent } from './schedule/evaluations/components/evaluation-card/evaluation-card.component';
 import { CreateProcedureSchedulingDialogComponent } from './patients/patient/components/create-procedure-scheduling-dialog/create-procedure-scheduling-dialog.component';
 import { ProcedureCardComponent } from './schedule/procedures/components/procedure-card/procedure-card.component';
+import { PayTreatmentInstallmentDialogComponent } from './patients/patient/components/pay-treatment-installment-dialog/pay-treatment-installment-dialog.component';
 
 @NgModule({
   declarations: [
@@ -49,7 +50,8 @@ import { ProcedureCardComponent } from './schedule/procedures/components/procedu
     CreateEvalutionSchedulingDialogComponent,
     EvaluationCardComponent,
     CreateProcedureSchedulingDialogComponent,
-    ProcedureCardComponent
+    ProcedureCardComponent,
+    PayTreatmentInstallmentDialogComponent
   ],
   imports: [
     CommonModule,
