@@ -28,11 +28,13 @@ export class TreatmentsTabComponent implements OnInit {
   populateTreatments() {
     console.log(this.treatments);
     this.treatments?.forEach( (treatment: any) => {
-      console.log(treatment.status);
-      if(treatment.status == "Avaliação Completa")
+      if(treatment.status == TreatmentStatusEnum.EmNegociacao){
         this.treatmentsInNegotiation.push(treatment);
-      else
+   
+      }
+      else{
         this.treatmentsHistory.push(treatment);
+      }
     })
 
   }

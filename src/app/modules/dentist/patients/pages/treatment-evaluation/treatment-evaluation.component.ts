@@ -108,7 +108,7 @@ export class TreatmentEvaluationComponent implements OnInit {
       procedures.push(parsedProcedure);
     });
 
-    await lastValueFrom(this.treatmentsService.updateTreatmentStatus(treatment.id, TreatmentStatusEnum.AvaliacaoCompleta));
+    await lastValueFrom(this.treatmentsService.updateTreatmentStatus(treatment.id, TreatmentStatusEnum.EmNegociacao));
     await lastValueFrom(this.treatmentsService.createTreatmentPlan(treatment.id, procedures));
 
     const snackBarRef = this.snackBar.open('Tratamento criado!', 'Ok', {duration: 2000, panelClass: 'blue-snackbar'});

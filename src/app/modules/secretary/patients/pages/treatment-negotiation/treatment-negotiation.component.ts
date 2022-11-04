@@ -2,7 +2,7 @@ import { Component, ElementRef, OnInit, ViewChild } from '@angular/core';
 import { FormControl, FormGroup, Validators } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { ActivatedRoute, Router } from '@angular/router';
-import { firstValueFrom } from 'rxjs';
+import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { TreatmentStatusEnum } from 'src/app/shared/enums/TreatmentStatusEnum';
 import { routes } from 'src/app/shared/models/routes';
 import { TreatmentsService } from 'src/app/shared/services/treatments.service';
@@ -77,7 +77,7 @@ export class TreatmentNegotiationComponent implements OnInit {
       this.isLoading = false;
     });
 
-    await firstValueFrom(this.treatmentsService.updateTreatmentStatus(this.treatmentId, TreatmentStatusEnum.EmProgresso));
+    await lastValueFrom(this.treatmentsService.updateTreatmentStatus(this.treatmentId, TreatmentStatusEnum.EmProgresso));
     this.isLoading = false;
 
     stepper.next();

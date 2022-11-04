@@ -1,5 +1,6 @@
 import { Patient } from './Patient';
 import { Dentist } from './Dentist';
+import { TreatmentStatusEnum } from '../enums/TreatmentStatusEnum';
 
 export interface Prothesis {
   id: number;
@@ -44,5 +45,6 @@ export interface Treatment {
   totalCost: number;
   prothesisCost: number;
   anamnesis: string;
-  status: string;
+  status: TreatmentStatusEnum;
+  statusDescription: string;
 }

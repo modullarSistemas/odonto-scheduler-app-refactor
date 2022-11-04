@@ -1,5 +1,4 @@
 import { ComponentFixture, TestBed } from '@angular/core/testing';
-
 import { TreatmentsTabComponent } from './treatments-tab.component';
 
 describe('TreatmentsTabComponent', () => {

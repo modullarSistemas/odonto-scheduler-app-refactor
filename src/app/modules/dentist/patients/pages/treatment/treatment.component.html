@@ -7,10 +7,6 @@
 
 <div class="view-container" *ngIf="treatment">
   <mat-tab-group>
-    <mat-tab label="Informações">
-      <app-info-treatment-tab [treatment]="treatment"></app-info-treatment-tab>
-    </mat-tab>
-
     <mat-tab label="Procedimentos">
       <app-procedures-treatment-tab [treatment]="treatment" [updateTreatment]="boundedGetTreatment"></app-procedures-treatment-tab>
     </mat-tab>

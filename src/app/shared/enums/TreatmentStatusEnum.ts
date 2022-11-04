@@ -1,7 +1,12 @@
+import { Type } from "@angular/compiler";
+
 export enum TreatmentStatusEnum{
   Pendente = 1,
   AvaliacaoCompleta = 2,
-  EmProgresso = 3,
-  Finalizado = 4,
-  Cancelado = 5,
-}
+  EmNegociacao = 3,
+  EmProgresso = 4,
+  Finalizado = 5,
+  Cancelado = 6,
+
+  
+};
