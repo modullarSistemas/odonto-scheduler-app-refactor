@@ -109,7 +109,9 @@
           </p>
 
           <div>
-            <button mat-button  class="primary-background" (click)="generateContract()">Gerar contrato</button>
+            <button *ngIf="!isLoading" mat-button  class="primary-background" (click)="generateContract()">Gerar contrato</button>
+            <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+
           </div>
 
         </mat-step>

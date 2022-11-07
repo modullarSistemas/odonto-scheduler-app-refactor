@@ -5,6 +5,7 @@ import { ActivatedRoute, Router } from '@angular/router';
 import { firstValueFrom, lastValueFrom } from 'rxjs';
 import { TreatmentStatusEnum } from 'src/app/shared/enums/TreatmentStatusEnum';
 import { routes } from 'src/app/shared/models/routes';
+import { ContractsService } from 'src/app/shared/services/contracts.service';
 import { TreatmentsService } from 'src/app/shared/services/treatments.service';
 
 @Component({
@@ -29,8 +30,8 @@ export class TreatmentNegotiationComponent implements OnInit {
      private route: ActivatedRoute,
      private treatmentsService: TreatmentsService,
      private snackBar: MatSnackBar,
-     private router: Router
-
+     private router: Router,
+     private contractsService: ContractsService
   ) {
     this.treatmentId = this.route.snapshot.paramMap.get('treatmentId');
     this.installmentsForm = new FormGroup({
@@ -91,16 +92,34 @@ export class TreatmentNegotiationComponent implements OnInit {
     this.installmentValue = Math.ceil(this.treatment.price / this.installmentQuantity);
   }
 
-  generateContract() {
+  async generateContract() {
     this.isLoading = true;
 
-    const snackBarRef = this.snackBar.open('Contrato gerado, faca o download e assine!', 'Ok', {duration: 2000, panelClass: 'blue-snackbar'});
+    await lastValueFrom(this.contractsService.generateTreatmentContract(this.treatmentId))
+    const pdfResponseData = await lastValueFrom(this.contractsService.getTreatmentContractByTreatmentId(this.treatmentId));
+    this.downloadFile(pdfResponseData);
+
+    const snackBarRef = this.snackBar.open('Contrato gerado e baixado!', 'Ok', {duration: 2000, panelClass: 'blue-snackbar'});
     snackBarRef.afterDismissed().subscribe(info => {
       let route = this.routes.PATIENTS_PATIENT_SECRETARY as string;
       route = route.replace(":id", this.treatment.pacient.id);
       this.router.navigate([route]);
+      this.isLoading = false;
     });
+  }
 
+  private downloadFile(data: any): void {
+    var file = new Blob([data], { type: 'application/pdf' })
+    var fileURL = URL.createObjectURL(file);
+
+    // if you want to open PDF in new tab
+    window.open(fileURL);
+    var a         = document.createElement('a');
+    a.href        = fileURL;
+    a.target      = '_blank';
+    a.download    = 'contrato-tratamento-' + this.treatmentId + '.pdf';
+    document.body.appendChild(a);
+    a.click();
   }
 
 }
