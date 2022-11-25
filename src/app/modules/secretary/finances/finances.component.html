@@ -1,0 +1,99 @@
+<app-page-toolbar title="Financeiro">
+  <button mat-stroked-button class="primary-background">Novo custo</button>
+</app-page-toolbar>
+
+<div class="view-container">
+  <mat-card style="margin-top: 20px;">
+    <mat-card-title>
+
+    </mat-card-title>
+
+    <mat-card-content>
+      <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-evenly; text-align: center;">
+        <div style="flex: 1;">
+          <b>ENTRADAS: </b> <span style="color: green">R$ 7800,00</span>
+        </div>
+
+        <div style="flex: 1; ">
+          <b>SAIDAS: </b> <span style="color: red">R$ 6800,00</span>
+        </div>
+
+        <div style="flex: 1; ">
+          <b>BALANCO: </b> <span >R$ 1000,00</span>
+        </div>
+
+        <div style="flex: 1;">
+          <b>PENDENTE: </b> <span style="color: orange">R$ 3900,00</span>
+        </div>
+      </div>
+    </mat-card-content>
+  </mat-card>
+
+  <mat-card style="margin-top: 20px;">
+    <mat-card-content>
+      <mat-list>
+
+        <mat-list-item>
+          <div style="display: flex; flex-direction: row; width: 100%;  justify-content: space-evenly; text-align: center;">
+            <div style="flex: 1;">
+              Pagamento de comissao do dentista Gabriel referente a parcela 1 do tratamento 24
+            </div>
+
+            <div style="flex: 1;">
+              10/05/2022 15:00
+            </div>
+
+            <div style="flex: 1; color: red">
+              R$ 30,00
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+
+        <mat-list-item>
+          <div style="display: flex; flex-direction: row; width: 100%;  justify-content: space-evenly; text-align: center;">
+            <div style="flex: 1;">
+              Pagamento de comissao do dentista Joao referente a parcela 1 do tratamento 24
+            </div>
+
+            <div style="flex: 1;">
+              10/07/2022 15:00
+            </div>
+
+            <div style="flex: 1; color: red">
+              R$ 50,00
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+
+        <mat-list-item>
+          <div style="display: flex; flex-direction: row; width: 100%;  justify-content: space-evenly; text-align: center;">
+            <div style="flex: 1;">
+              Pagamento de parcela 1 do tratamento 24
+            </div>
+
+            <div style="flex: 1;">
+              11/05/2022 13:00
+            </div>
+
+            <div style="flex: 1; color: green">
+              R$ 300,00
+            </div>
+          </div>
+          <mat-divider></mat-divider>
+        </mat-list-item>
+      </mat-list>
+    </mat-card-content>
+  </mat-card>
+
+  <!--
+  <div class="loading-container">
+      <mat-spinner [diameter]="25"></mat-spinner>
+  </div>
+-->
+  <div class="patients-list-container" >
+  </div>
+</div>
+
+

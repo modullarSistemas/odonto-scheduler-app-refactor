@@ -11,7 +11,7 @@ import { NewEvaluationEventComponent } from './schedule/evaluations/new-evaluati
 import { HistoryComponent } from './schedule/history/history.component';
 import { NewProcedureEventComponent } from './schedule/procedures/new-procedure-event/new-procedure-event.component';
 import { ProceduresComponent } from './schedule/procedures/procedures.component';
-
+import { FinancesComponent } from './finances/finances.component';
 const routes: Routes = [
   {
     path: '',
@@ -19,6 +19,9 @@ const routes: Routes = [
     children: [
       {
         path: 'dashboard', component: DashboardComponent
+      },
+      {
+        path: 'finances', component: FinancesComponent
       },
       {
         path: 'patients', component: PatientsComponent

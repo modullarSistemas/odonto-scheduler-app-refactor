@@ -6,7 +6,7 @@ export enum routes {
   //ADM
   ROOT_ADM = '/admin',
   DASHBOARD_ADM = '/admin/dashboard',
-  FINANCE_ADM = '/admin/finance',
+  FINANCES_ADM = '/admin/finances',
   MANUAL_REGISTERS_ADM = '/admin/manual-registers',
   MANUAL_REGISTERS_PROCEDURES_ADM = '/admin/manual-registers/procedures',
   MANUAL_REGISTERS_PROCEDURES_NEW_PROCEDURE_ADM = '/admin/manual-registers/procedures/new-procedure',
@@ -24,7 +24,7 @@ export enum routes {
   //DENTIST
   ROOT_DENTIST = '/dentist',
   DASHBOARD_DENTIST =  '/dentist/dashboard',
-  FINANCE_DENTIST = '/dentist/finance',
+  FINANCES_DENTIST = '/dentist/finances',
   SCHEDULE_DENTIST = '/dentist/schedule',
   SCHEDULE_PROCEDURES_DENTIST = '/dentist/schedule/procedures',
   SCHEDULE_EVALUATIONS_DENTIST = '/dentist/schedule/evaluations',
@@ -37,7 +37,7 @@ export enum routes {
   //SECRETARY
   ROOT_SECRETARY = '/secretary',
   DASHBOARD_SECRETARY = '/secretary/dashboard',
-  FINANCE_SECRETARY = '/secretary/finance',
+  FINANCES_SECRETARY = '/secretary/finances',
   SCHEDULE_SECRETARY = '/secretary/schedule',
   SCHEDULE_PROCEDURES_SECRETARY = '/secretary/schedule/procedures',
   SCHEDULE_NEW_PROCEDURE_EVENT_SECRETARY = '/secretary/schedule/procedures/new-procedure-event',
