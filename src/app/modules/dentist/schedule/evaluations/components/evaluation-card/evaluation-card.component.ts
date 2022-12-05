@@ -50,7 +50,6 @@ export class EvaluationCardComponent implements OnInit {
         });
       },
       error: (err) => {
-        console.log(err);
       }
     })
   }

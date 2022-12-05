@@ -53,7 +53,6 @@ export class EvaluationsComponent implements OnInit {
 
       },
       error: error => {
-        console.log(error);
         this.isLoading = false;
       }
     });
@@ -100,7 +99,6 @@ export class EvaluationsComponent implements OnInit {
   getLast7DaysSchedulings() {
     let startDate = new Date();
     let endDate = moment(startDate).subtract(7, "days").toDate();
-    console.log(endDate);
     let schedulings: any = [];
     this.schedulings.forEach( scheduling => {
       if(moment(scheduling.startDate).isBetween(endDate, startDate)) {
@@ -123,7 +121,6 @@ export class EvaluationsComponent implements OnInit {
     });
 
     this.last30DaysSchedulings = this.buildCalendar(schedulings);
-    console.log(this.last30DaysSchedulings);
   }
 
   buildCalendar(schedulings: any) {

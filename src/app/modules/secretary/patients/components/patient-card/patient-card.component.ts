@@ -18,7 +18,6 @@ export class PatientCardComponent implements OnInit {
   ) {}
 
   ngOnInit(): void {
-    console.log(this.patient)
   }
 
   navigateToPatient() {

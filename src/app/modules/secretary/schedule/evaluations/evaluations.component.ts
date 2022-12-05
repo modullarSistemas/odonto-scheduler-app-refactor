@@ -118,8 +118,6 @@ export class EvaluationsComponent implements OnInit {
 
     let schedulings: any = [];
     this.schedulings.forEach( scheduling => {
-      console.log(scheduling);
-
       if(moment(scheduling.startDate).isBetween(endDate, startDate)) {
 
         schedulings.push(scheduling);

@@ -30,11 +30,15 @@
       <mat-label>Profissao</mat-label>
       <input formControlName="profession" matInput />
     </mat-form-field>
+
+
     <mat-form-field  appearance="fill">
       <mat-label>Estado Civil</mat-label>
       <mat-select formControlName="civilState">
-        <mat-option value="single">Casado</mat-option>
-        <mat-option value="married">Solteiro</mat-option>
+        <mat-option value="Casado">Casado</mat-option>
+        <mat-option value="Solteiro">Solteiro</mat-option>
+        <mat-option value="Viúvo">Viúvo</mat-option>
+        <mat-option value="Divorciado">Divorciado</mat-option>
       </mat-select>
     </mat-form-field>
 
@@ -49,6 +53,8 @@
       <input formControlName="rg" matInput />
     </mat-form-field>
 
+
+
     <br />
 
     <mat-form-field appearance="fill">
@@ -59,6 +65,19 @@
         <mat-option value="Outro">Outro</mat-option>
       </mat-select>
     </mat-form-field>
+
+    <mat-form-field  appearance="fill">
+      <mat-label>Como Chegou à Clinica</mat-label>
+      <mat-select formControlName="howArrived">
+        <mat-option value="Facebook">Facebook</mat-option>
+        <mat-option value="Instagram">Instagram</mat-option>
+        <mat-option value="Radio">Radio</mat-option>
+        <mat-option value="Indicação">Indicação</mat-option>
+        <mat-option value="na">Nenhuma das alternativas</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+    
   <div>
     <button mat-button matStepperNext>Proximo</button>
   </div>

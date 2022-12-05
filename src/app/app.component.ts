@@ -39,7 +39,6 @@ export class AppComponent {
       this.router.navigate([routes.DASHBOARD_SECRETARY]).then();
     }
     */
-    console.log(res);
   }
 
 
