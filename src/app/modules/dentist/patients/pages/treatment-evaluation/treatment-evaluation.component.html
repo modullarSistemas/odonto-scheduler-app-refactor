@@ -38,10 +38,11 @@
                 role="listitem"
               >
                 <div style="display: flex;width: 100%; font-size: 10px">
-                  <p>{{ procedure.name }} - <b> Dente: </b> {{ procedure.tooth }} - <b>R$ </b> {{ procedure.cost }} </p>
+                  <p>{{ procedure.name }} - <b> Dente: </b> {{ procedure.tooth }} - <b>Dentista: </b> {{ procedure.dentist.name }} - <b> R$ </b> {{ procedure.cost }} </p>
                   <div *ngIf="procedure.needProthesis">
-                    <p><b> Protese: </b> {{ procedure.prothesis.name }}</p>
+                    <p><span> </span><b> Protese: </b> {{ procedure.prothesis.name }}</p>
                   </div>
+                  
                   <span class="toolbar-spacer"></span>
                   <app-close-button
                     (click)="deleteProcedure(procedure)"

@@ -46,11 +46,28 @@
             />
           </mat-form-field>
 
+          
+          <mat-checkbox
+            style="padding: 10px; border-radius: 2px; margin-top: 1px"
+            class="example-margin"
+            [(ngModel)]="selectedProcedure.toggleDentist"
+          >
+            Trocar dentista?
+          </mat-checkbox>
+
           <mat-form-field
             *ngIf="selectedProcedure.toggleDentist"
             style="margin-top: 10px; margin-bottom: 10px"
             appearance="fill"
           >
+          <mat-label>Dentistas </mat-label>
+          <input
+            type="text"
+            placeholder="Selecione um dentista para o procedimento"
+            matInput
+            [formControl]="dentist"
+            [matAutocomplete]="auto3"
+          />
             <mat-autocomplete
               autoActiveFirstOption
               #auto3="matAutocomplete"
@@ -127,11 +144,12 @@
             *ngFor="let procedure of selectedProcedures"
             role="listitem"
           >
-            <div style="display: flex;width: 100%; font-size: 10px">
-              <p>{{ procedure.name }} - <b> Dente: </b> {{ procedure.tooth }} - <b>R$ </b> {{ procedure.cost }} </p>
+            <div style="display: flex; width: 100%; font-size: 10px">
+              <p>{{ procedure.name }} - <b> Dente: </b> {{ procedure.tooth }} - <b>Dentista: </b> {{ procedure.dentist.name }} - <b> R$ </b> {{ procedure.cost }} </p>
               <div *ngIf="procedure.needProthesis">
-                <p><b> Protese: </b> {{ procedure.prothesis.name }}</p>
+                <p> <b> Protese: </b> {{ procedure.prothesis.name }}</p>
               </div>
+
               <span class="toolbar-spacer"></span>
               <app-close-button
                 (click)="deleteProcedure(procedure)"
