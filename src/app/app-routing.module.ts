@@ -7,7 +7,8 @@ import { SecretaryGuard } from './shared/guards/secretary.guard';
 
 const routes: Routes = [
   {
-    path: '', component: AppComponent
+    path: '',
+    loadChildren: () => import('./modules/institutional/institutional.module').then(m => m.InstitutionalModule)
   },
   {
     path: 'auth',

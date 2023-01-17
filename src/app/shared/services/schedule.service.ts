@@ -10,6 +10,7 @@ export class ScheduleService {
   constructor(private httpClient: HttpClient) { }
 
   createEvaluationScheduling(data: any) {
+    console.log(data);
     return this.httpClient.post(this.apiUrl + "api/EvaluationScheduling", data);
   }
 

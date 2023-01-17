@@ -7,7 +7,9 @@
       <input matInput [ngxMatDatetimePicker]="picker" placeholder="Data e hora de inicio" [formControl]="evaluationSchedulingForm.get('startDate')">
       <mat-datepicker-toggle matSuffix [for]="$any(picker)"></mat-datepicker-toggle>
       <ngx-mat-datetime-picker #picker
-        [enableMeridian]="false" >
+        [enableMeridian]="false"
+        [showSeconds]="false"
+        [stepMinute]="5">
       </ngx-mat-datetime-picker>
     </mat-form-field>
 

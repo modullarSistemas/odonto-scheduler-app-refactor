@@ -15,7 +15,7 @@ import { MatDialog } from '@angular/material/dialog';
 export class EvaluationsComponent implements OnInit {
   public routes: typeof routes = routes;
   schedulings: EvaluationScheduling[] = [];
-  dayDate = new Date();
+  dayDate = new Date().setSeconds(0);
   isLoading = false;
 
   last30DaysSchedulings: any = <any>[];

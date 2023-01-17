@@ -26,8 +26,8 @@ export class CreateEvalutionSchedulingDialogComponent implements OnInit {
   ) {
     let user: any = this.authService.getUser();
     this.evaluationSchedulingForm = new FormGroup({
-      startDate: new FormControl('', Validators.required),
-      endDate: new FormControl(new Date()),
+      startDate: new FormControl(new Date().setSeconds(0), Validators.required),
+      endDate: new FormControl(new Date().setSeconds(0)),
       scheduledBy: new FormControl(user.userId),
       franchiseId: new FormControl(user.franchiseId),
       description: new FormControl('', Validators.required)
@@ -40,8 +40,9 @@ export class CreateEvalutionSchedulingDialogComponent implements OnInit {
   createEvaluationScheduling() {
     this.isLoading = true;
     let data = this.evaluationSchedulingForm.value;
-    data.startDate = moment(data.startDate).toDate();
-    data.endDate = moment(data.startDate).add(60, 'm').toDate();
+
+    data.startDate = moment.utc(data.startDate).subtract(3, 'h').format();
+    data.endDate = moment.utc(data.startDate).add(60, 'm').format();
 
     this.scheduleService.createEvaluationScheduling(data).subscribe({
       next: res => {
@@ -49,9 +50,7 @@ export class CreateEvalutionSchedulingDialogComponent implements OnInit {
         this.dialogRef.close();
         const snackBarRef = this.snackBar.open('Nova avaliacao agendada!', 'Ok', {duration: 2000, panelClass: 'blue-snackbar'});
         snackBarRef.afterDismissed().subscribe(info => {
-
         });
-
       },
       error: error => {
         console.log(error);
