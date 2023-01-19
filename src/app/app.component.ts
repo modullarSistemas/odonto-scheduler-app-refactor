@@ -18,10 +18,8 @@ export class AppComponent {
     ) {
     let res = this.authService.getUser();
 
-    if(!res) {
-      this.router.navigate([routes.LOGIN_AUTH]).then();
-      return;
-    }
+    this.router.navigate([routes.LOGIN_AUTH]).then();
+
 
     /*
     if its base url ex: www.localhost.com
