@@ -20,7 +20,8 @@ mat-list {
   border-radius: 5px;
 }
 
-img {
+.teeth {
+  border: 0;
   background-image: url('../../../../../../../../assets/dentes.png');
   background-position: center;
   flex: 1;
