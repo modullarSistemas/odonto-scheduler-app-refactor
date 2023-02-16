@@ -1,12 +1,20 @@
 <app-page-toolbar title="Financeiro">
-  <button mat-stroked-button class="primary-background">Novo custo</button>
+  <button
+    mat-stroked-button
+    class="primary-background"
+    [matMenuTriggerFor]="menu"
+  >
+    +
+  </button>
+  <mat-menu #menu="matMenu">
+    <button mat-menu-item (click)="openIncomeDialog()">Entrada</button>
+    <button mat-menu-item (click)="openExpenseDialog()">Saida</button>
+  </mat-menu>
 </app-page-toolbar>
 
 <div class="view-container">
-  <mat-card style="margin-top: 20px;">
-    <mat-card-title>
-      Visão geral
-    </mat-card-title>
+  <mat-card style="margin-top: 20px">
+    <mat-card-title> Visão geral </mat-card-title>
 
     <mat-card-content>
       <div>
@@ -18,126 +26,66 @@
             <mat-option value="option3">Ultimos 3 meses</mat-option>
           </mat-select>
         </mat-form-field>
-
       </div>
 
-      <div style="display: flex; flex-direction: row; width: 100%; justify-content: space-evenly; text-align: center;">
-        <div style="flex: 1;">
+      <div
+        style="
+          display: flex;
+          flex-direction: row;
+          width: 100%;
+          justify-content: space-evenly;
+          text-align: center;
+        "
+      >
+        <div style="flex: 1">
           <b>ENTRADAS: </b> <span style="color: green">R$ 7800,00</span>
         </div>
 
-        <div style="flex: 1; ">
+        <div style="flex: 1">
           <b>SAIDAS: </b> <span style="color: red">R$ 6800,00</span>
         </div>
 
-        <div style="flex: 1; ">
-          <b>Saldo: </b> <span >R$ 1000,00</span>
-        </div>
+        <div style="flex: 1"><b>Saldo: </b> <span>R$ 1000,00</span></div>
 
-        <div style="flex: 1;">
+        <div style="flex: 1">
           <b>PENDENTE: </b> <span style="color: orange">R$ 3900,00</span>
         </div>
       </div>
     </mat-card-content>
   </mat-card>
 
-  <mat-card style="margin-top: 20px;">
+  <mat-card style="margin-top: 20px">
     <mat-card-content>
       <mat-tab-group>
         <mat-tab label="Geral">
           <mat-list>
-
-            <mat-list-item>
-              <div style="display: flex; flex-direction: row; width: 100%;  justify-content: space-evenly; text-align: center;">
-                <div style="flex: 1;">
-                  Pagamento de comissao do dentista Gabriel referente a parcela 1 do tratamento 24
-                </div>
-
-                <div style="flex: 1;">
-                  10/05/2022 15:00
-                </div>
-
-                <div style="flex: 1; color: red">
-                  R$ 30,00
-                </div>
-              </div>
-              <mat-divider></mat-divider>
-            </mat-list-item>
-
+            <div *ngFor="let item of all">
+              <app-income-item *ngIf="item.type == 'income'" [income]="item"></app-income-item>
+              <app-expense-item *ngIf="item.type == 'expense'" [expense]="item"></app-expense-item>
+            </div>
           </mat-list>
         </mat-tab>
 
         <mat-tab label="Entradas">
           <mat-list>
-
-            <mat-list-item>
-              <div style="display: flex; flex-direction: row; width: 100%;  justify-content: space-evenly; text-align: center;">
-                <div style="flex: 1;">
-                  Pagamento de comissao do dentista Gabriel referente a parcela 1 do tratamento 24
-                </div>
-
-                <div style="flex: 1;">
-                  10/05/2022 15:00
-                </div>
-
-                <div style="flex: 1; color: red">
-                  R$ 30,00
-                </div>
-              </div>
-              <mat-divider></mat-divider>
-            </mat-list-item>
-
+            <div *ngFor="let income of incomes">
+              <app-income-item [income]="income"></app-income-item>
+            </div>
           </mat-list>
         </mat-tab>
 
         <mat-tab label="Saidas">
           <mat-list>
-
-            <mat-list-item>
-              <div style="display: flex; flex-direction: row; width: 100%;  justify-content: space-evenly; text-align: center;">
-                <div style="flex: 1;">
-                  Pagamento de comissao do dentista Gabriel referente a parcela 1 do tratamento 24
-                </div>
-
-                <div style="flex: 1;">
-                  10/05/2022 15:00
-                </div>
-
-                <div style="flex: 1; color: red">
-                  R$ 30,00
-                </div>
-              </div>
-              <mat-divider></mat-divider>
-            </mat-list-item>
-
+            <div *ngFor="let expense of expenses">
+              <app-expense-item [expense]="expense"></app-expense-item>
+            </div>
           </mat-list>
         </mat-tab>
 
         <mat-tab label="Pendencias">
-          <mat-list>
 
-            <mat-list-item>
-              <div style="display: flex; flex-direction: row; width: 100%;  justify-content: space-evenly; text-align: center;">
-                <div style="flex: 1;">
-                  Pagamento de comissao do dentista Gabriel referente a parcela 1 do tratamento 24
-                </div>
-
-                <div style="flex: 1;">
-                  10/05/2022 15:00
-                </div>
-
-                <div style="flex: 1; color: red">
-                  R$ 30,00
-                </div>
-              </div>
-              <mat-divider></mat-divider>
-            </mat-list-item>
-
-          </mat-list>
         </mat-tab>
-
       </mat-tab-group>
-
     </mat-card-content>
   </mat-card>
 
@@ -146,8 +94,5 @@
       <mat-spinner [diameter]="25"></mat-spinner>
   </div>
 -->
-  <div class="patients-list-container" >
-  </div>
+  <div class="patients-list-container"></div>
 </div>
-
-

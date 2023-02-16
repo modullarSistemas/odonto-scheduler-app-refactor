@@ -1,0 +1,13 @@
+<mat-list-item>
+    <div *ngIf="paymentMethod" style="flex: 1">
+      {{paymentMethod.name}}
+    </div>
+
+    <div style="flex: 1">
+      {{income.date}}
+    </div>
+
+    <div style="flex: 1; color: green">
+      R$ {{income.value}}
+    </div>
+</mat-list-item>

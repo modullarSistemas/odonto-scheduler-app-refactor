@@ -1,0 +1,35 @@
+
+
+<h2 mat-dialog-title>Nova entrada de caixa</h2>
+<mat-dialog-content>
+  <form [formGroup]="incomeForm">
+    <mat-form-field>
+      <mat-label>Valor em R$</mat-label>
+      <input matInput type="number" step="0.01" formControlName="value">
+    </mat-form-field>
+
+    <br>
+
+    <mat-form-field class="example-full-width" appearance="fill">
+      <mat-label>Forma de pagamento</mat-label>
+      <mat-select  [ngModelOptions]="{standalone: true}" [(ngModel)]="paymentMethod">
+        <mat-option *ngFor="let method of paymentMethodOptions" [value]="method.value">{{method.name}}</mat-option>
+      </mat-select>
+    </mat-form-field>
+
+  </form>
+
+</mat-dialog-content>
+
+<mat-dialog-actions align="end">
+  <button mat-button mat-dialog-close >Cancelar</button>
+  <button
+    *ngIf="!isLoading"
+    mat-raised-button
+    (click)="createIncome()"
+    >
+    Adicionar
+  </button>
+  <mat-spinner *ngIf="isLoading" [diameter]="25"></mat-spinner>
+
+</mat-dialog-actions>

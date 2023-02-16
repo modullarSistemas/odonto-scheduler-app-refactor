@@ -27,6 +27,10 @@ import { CreateProcedureSchedulingDialogComponent } from './patients/patient/com
 import { ProcedureCardComponent } from './schedule/procedures/components/procedure-card/procedure-card.component';
 import { PayTreatmentInstallmentDialogComponent } from './patients/patient/components/pay-treatment-installment-dialog/pay-treatment-installment-dialog.component';
 import { FinancesComponent } from './finances/finances.component';
+import { ExpensesDialogComponent } from './finances/components/expenses-dialog/expenses-dialog.component';
+import { IncomesDialogComponent } from './finances/components/incomes-dialog/incomes-dialog.component';
+import { IncomeItemComponent } from './finances/components/income-item/income-item.component';
+import { ExpenseItemComponent } from './finances/components/expense-item/expense-item.component';
 
 @NgModule({
   declarations: [
@@ -53,14 +57,20 @@ import { FinancesComponent } from './finances/finances.component';
     CreateProcedureSchedulingDialogComponent,
     ProcedureCardComponent,
     PayTreatmentInstallmentDialogComponent,
-    FinancesComponent
+    FinancesComponent,
+    ExpensesDialogComponent,
+    IncomesDialogComponent,
+    IncomeItemComponent,
+    ExpenseItemComponent
   ],
   imports: [
     CommonModule,
     SecretaryRoutingModule,
     SharedModule
   ], entryComponents: [
-    CreateEvalutionSchedulingDialogComponent
+    CreateEvalutionSchedulingDialogComponent,
+    ExpensesDialogComponent,
+    IncomesDialogComponent
   ]
 })
 export class SecretaryModule { }
