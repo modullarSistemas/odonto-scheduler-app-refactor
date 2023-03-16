@@ -1,0 +1,25 @@
+
+.container {
+  position: absolute;
+  height: 50vh;
+  width: 50%;
+  margin: 50px;
+}
+
+mat-form-field{
+  position: relative;
+}
+
+canvas {
+  display: flex;
+  position: absolute;
+  align-content: center;
+  justify-content: center;
+}
+
+
+
+.mat-date-range-input-container {
+  display: flex;
+  align-items: center;
+}

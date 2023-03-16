@@ -1,32 +1,50 @@
-import { Component, OnInit } from '@angular/core';
+import { AfterViewInit, Component, ViewChild } from '@angular/core';
 import { MatDialog } from '@angular/material/dialog';
 import { lastValueFrom } from 'rxjs';
 import { AuthService } from 'src/app/shared/services/auth.service';
 import { FinancesService } from 'src/app/shared/services/finances.service';
 import { ExpensesDialogComponent } from './components/expenses-dialog/expenses-dialog.component';
 import { IncomesDialogComponent } from './components/incomes-dialog/incomes-dialog.component';
-
+import { MatPaginator } from '@angular/material/paginator';
+import { MatTableDataSource } from '@angular/material/table';
+import { Income } from 'src/app/shared/models/Finance/Income';
 @Component({
   selector: 'app-finances',
   templateUrl: './finances.component.html',
   styleUrls: ['./finances.component.css']
 })
-export class FinancesComponent implements OnInit {
+
+
+
+export class FinancesComponent implements AfterViewInit {
 
   incomes: any;
   expenses: any;
   all: any;
+  totalIncome : any;
+
+  incomeDisplayedColumns: string[] = ['id', 'value', 'paymentMethod', 'paymentDate'];
+  incomeDataSource = new MatTableDataSource<Income>();
+
+
 
   constructor(
     private dialog: MatDialog,
     private financesServices: FinancesService,
     private authService: AuthService
   ) {
-    this.getData();
+
   }
 
-  ngOnInit(): void {
+
+  ngAfterViewInit() {
+    this.getData();
+    console.log("teste");
+    console.log(this.incomes);
+
+    this.incomeDataSource = this.incomes;
   }
+
 
   async getData() {
     let user: any = this.authService.getUser();
@@ -46,27 +64,11 @@ export class FinancesComponent implements OnInit {
     this.expenses = await lastValueFrom(this.financesServices.getExpensesByFranchiseId(userId));
     this.incomes = await lastValueFrom(this.financesServices.getIncomeByFranchiseId(userId));
 
-    this.expenses.forEach( (expense: any) => {
+    this.expenses.forEach((expense: any) => {
       expense.type = 'expense';
     });
 
-    this.incomes.forEach( (income: any) => {
-      income.type = 'income';
-    });
 
-    this.incomes.forEach( (income: any) => {
-      Object.assign(income, { date: income.paymentDate })['paymentDate'];
-      delete income['paymentDate'];
-    });
-
-    this.all = [];
-    this.all = this.all.concat(this.expenses);
-    this.all = this.all.concat(this.incomes);
-    this.all = this.all.sort(function(a:any, b:any){
-      return new Date(b.date).getTime() - new Date(a.date).getTime();
-    });
-
-    console.log(this.all)
   }
 
   openExpenseDialog() {

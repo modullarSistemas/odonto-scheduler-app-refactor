@@ -18,30 +18,33 @@ import { NewSecretaryComponent } from './secretaries/pages/new-secretary/new-sec
 import { SecretaryComponent } from './secretaries/pages/secretary/secretary.component';
 import { NewProthesisComponent } from './manual-registers/pages/prothesis/pages/new-prothesis/new-prothesis.component';
 import { NewProcedureComponent } from './manual-registers/pages/procedures/pages/new-procedure/new-procedure.component';
+import { TotalSalesChartComponent } from "./dashboard/total-sales-chart/total-sales-chart.component";
 
 
 @NgModule({
-  declarations: [
-    AdminComponent,
-    DashboardComponent,
-    ManualRegistersComponent,
-    ProceduresComponent,
-    ProthesisComponent,
-    TreatmentPlansComponent,
-    DentalAppliancesComponent,
-    DentistsComponent,
-    NewDentistComponent,
-    DentistComponent,
-    SecretariesComponent,
-    NewSecretaryComponent,
-    SecretaryComponent,
-    NewProthesisComponent,
-    NewProcedureComponent
-  ],
-  imports: [
-    CommonModule,
-    AdminRoutingModule,
-    SharedModule
-  ]
+    declarations: [
+        AdminComponent,
+        DashboardComponent,
+        ManualRegistersComponent,
+        ProceduresComponent,
+        ProthesisComponent,
+        TreatmentPlansComponent,
+        DentalAppliancesComponent,
+        DentistsComponent,
+        NewDentistComponent,
+        DentistComponent,
+        SecretariesComponent,
+        NewSecretaryComponent,
+        SecretaryComponent,
+        NewProthesisComponent,
+        NewProcedureComponent,
+        TotalSalesChartComponent
+    ],
+    imports: [
+        CommonModule,
+        AdminRoutingModule,
+        SharedModule,
+        
+    ]
 })
 export class AdminModule { }

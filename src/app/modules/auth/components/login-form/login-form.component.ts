@@ -35,15 +35,15 @@ export class LoginFormComponent implements OnInit {
           await this.service.setUserData(res);
 
           if (res.role == 'admin') {
-            this.router.navigate([routes.DASHBOARD_ADM]).then();
+            this.router.navigate([routes.ROOT_ADM]).then();
           }
 
           if (res.role == 'dentist') {
-            this.router.navigate([routes.DASHBOARD_DENTIST]).then();
+            this.router.navigate([routes.ROOT_DENTIST]).then();
           }
 
           if (res.role == 'secretary') {
-            this.router.navigate([routes.DASHBOARD_SECRETARY]).then();
+            this.router.navigate([routes.ROOT_SECRETARY]).then();
           }
 
           this.isLoading = false;
