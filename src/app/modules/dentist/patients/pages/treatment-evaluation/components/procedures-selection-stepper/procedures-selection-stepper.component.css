@@ -1,32 +1,30 @@
 .procedure-selection-container {
-  display: flex;
-  flex-direction: row;
+    display: flex;
+    flex-direction: row;
 }
 
 .procedure-selection-row {
-  flex: 1;
-  padding: 10px;
+    flex: 1;
+    padding: 10px;
 }
 
 mat-form-field {
-  width: 100%;
+    width: 100%;
 }
 
-
-
 mat-list {
-  padding: 10px;
-  min-height: 30px;
-  border-radius: 5px;
+    padding: 10px;
+    min-height: 30px;
+    border-radius: 5px;
 }
 
 .teeth {
-  border: 0;
-  background-image: url('../../../../../../../../assets/dentes.png');
-  background-position: center;
-  flex: 1;
-  height: 440px;
-  width: 330px;
-  margin-top:10px; 
-  margin-bottom:10px;
+    border: 0;
+    /* background-image: url('../../../../../../../../assets/dentes.png'); */
+    background-position: center;
+    flex: 1;
+    height: 440px;
+    width: 330px;
+    margin-top: 10px;
+    margin-bottom: 10px;
 }
